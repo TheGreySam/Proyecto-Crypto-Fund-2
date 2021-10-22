@@ -8,6 +8,8 @@
     contain
   >
   <br>
+  
+  <br>
        <transition mode="out-in" name="fade">
           <router-view  />
         </transition>
@@ -26,6 +28,7 @@ export default {
     Navbar: () => import("./components/App/Navbar"),
     Footer: () => import("./components/App/Footer.vue")
   },
+  
 };
 </script>
 
