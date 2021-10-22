@@ -4,6 +4,7 @@
     
     tile
   >
+  <Carousel />
     <v-list rounded>
       <v-subheader></v-subheader>
       <v-list-item-group
@@ -51,6 +52,11 @@
 <script>
   export default {
     name: "App",
+    components: {
+          Carousel: () =>
+          import("../components/Home/Carousel.vue")
+
+      },
     data(){
     return {
       coins: []

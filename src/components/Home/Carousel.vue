@@ -1,11 +1,7 @@
 <template>
 <v-container>
   <div>
-  <div class="pa-2 d-flex justify-center black--text">
-    <h1>Bienvenido a Alfa Web</h1>
-    <br>
-    
-  </div>
+  <CriptoCard />
   <br>
   <v-carousel cycle :show-arrows="false" hide-delimiters>
     <v-carousel-item
@@ -26,7 +22,7 @@
   export default {
       components: {
           CriptoCard: () =>
-          import("../components/Home/CriptoCard.vue")
+          import("@/components/Home/CriptoCard.vue")
 
       },
     data () {
