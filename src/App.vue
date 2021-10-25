@@ -34,14 +34,22 @@
     </v-app-bar>
 
     <v-main>
+      <v-container>
+        <LoginCard />
+      </v-container>
       <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import LoginCard from "./components/Login/LoginCard.vue";
 export default {
   name: "App",
+
+  components: {
+    LoginCard,
+  },
 
   data: () => ({
     //
