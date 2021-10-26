@@ -42,7 +42,7 @@
                   @click:append="show1 = !show1"
                   required
                 ></v-text-field>
-                <v-btn block outlined color="cforange" @click="dialog = false">
+                <v-btn block outlined color="cforange" @click="buttonLogin">
                   Entrar
                 </v-btn>
                 <p class="text-center pt-5">
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import Firebase from "firebase";
 export default {
   data: () => ({
     dialog: false,
@@ -79,6 +80,18 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
+    },
+    buttonLogin() {
+      Firebase.auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((response) => {
+          this.$store.dispatch("defineCurrentUser", {
+            email: response.user.email,
+          });
+        })
+        .catch(() => {
+          this.$swal("Upss, correo o contraseña incorrectos");
+        });
     },
   },
 };

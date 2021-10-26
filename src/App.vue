@@ -36,6 +36,7 @@
     <v-main>
       <v-container>
         <LoginCard />
+        <RegistrationCard />
       </v-container>
       <router-view />
     </v-main>
@@ -44,11 +45,13 @@
 
 <script>
 import LoginCard from "./components/Login/LoginCard.vue";
+import RegistrationCard from "./components/Login/RegistrationCard.vue";
 export default {
   name: "App",
 
   components: {
     LoginCard,
+    RegistrationCard,
   },
 
   data: () => ({
