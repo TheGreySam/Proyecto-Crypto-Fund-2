@@ -8,16 +8,26 @@
     contain
   >
   <br>
-  
-  <br>
-       <transition mode="out-in" name="fade">
+  <v-main>
+     <transition mode="out-in" name="fade">
           <router-view  />
         </transition>
+    
+  </v-main>
+   <v-container>
+        <LoginCard />
+        <RegistrationCard />
+      </v-container>
+  
+  <br>
+      
         
       </v-parallax>
       <Footer/>
     </v-app>
   
+       
+
 </template>
 
 <script>
@@ -26,10 +36,14 @@ export default {
 
   components: {
     Navbar: () => import("./components/App/Navbar"),
-    Footer: () => import("./components/App/Footer.vue")
-  },
-  
-};
+    Footer: () => import("./components/App/Footer.vue"),
+    LoginCard: () => import("./components/Login/LoginCard.vue"),
+    RegistrationCard: () => import("./components/Login/RegistrationCard.vue")
+
+  }
+}
+
+
 </script>
 
 <style>
