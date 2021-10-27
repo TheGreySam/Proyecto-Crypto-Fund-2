@@ -1,5 +1,7 @@
 <template>
-  <v-card max-width="375" class="mx-auto text-xs-center">
+<v-container grid-list-md fluid>
+  <v-layout align-start row wrap pb-4 justify-start>
+  <v-card max-width="500" class="mx-auto text-xs-center">
     <v-list >
       <v-list-item v-for="coin in coins" :key="coin.id">
         <v-row>
@@ -43,6 +45,8 @@
       <v-divider inset></v-divider>
     </v-list>
   </v-card>
+  </v-layout>
+</v-container>
 </template>
 
 <script>
