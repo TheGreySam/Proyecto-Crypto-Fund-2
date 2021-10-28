@@ -4,7 +4,7 @@
       <v-parallax
       height="100%"
     dark
-    src="assets\Crypto Fund Logo.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abstract-background-white-12.jpg/2560px-Abstract-background-white-12.jpg"
     contain
   >
   <br>
@@ -14,11 +14,7 @@
         </transition>
     
   </v-main>
-   <v-container>
-        <LoginCard />
-        <RegistrationCard />
-      </v-container>
-  
+
   <br>
       
         

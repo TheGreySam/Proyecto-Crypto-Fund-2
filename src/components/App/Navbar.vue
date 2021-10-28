@@ -6,9 +6,10 @@
                 <router-link to="/" class="btn home">Crypto fund</router-link>
                 </v-toolbar-title>
             <v-spacer></v-spacer>
-           
-            <router-link to="/about" class="btn about">Nosotros</router-link>
-            <router-link to="/money" class="btn money">Fondos</router-link>
+
+            <router-link to="/" class="btn about">Home</router-link>           
+            <router-link to="/mercado" class="btn about">Mercado</router-link>
+            <router-link to="/fondo" class="btn money">Fondos</router-link>
            
             <v-spacer></v-spacer>
             <a>   
