@@ -7,8 +7,8 @@
                 </v-toolbar-title>
             <v-spacer></v-spacer>
 
-            transition-group name="fade" tag="div">
-        <template v-if="$store.state.session.user">
+            
+        <!--template v-if="$store.state.session.user">
           <v-btn
             v-for="(link, $index) in links"
             :key="$index"
@@ -18,8 +18,8 @@
             
             {{ link.text }}
           </v-btn>
-        </template>
-      </transition-group>
+        </template-->
+      
            
             <v-spacer></v-spacer>
             <a>   
@@ -27,7 +27,7 @@
                 <v-icon>mdi-login</v-icon>
             </a>
              <a>   
-                <router-link to="/login" class="btn login" :color="">Registro</router-link>
+                <router-link to="/login" class="btn login">Registro</router-link>
                 <v-icon>mdi-login</v-icon>
             </a>
         </v-app-bar>
@@ -38,7 +38,10 @@
 <script>
 export default{
     computed: {
-        links: [
+        links() {
+            
+        
+        const links = [
             {
                 text: "Home",
                 to: "/"
@@ -47,26 +50,27 @@ export default{
                 text: "Mercado",
                 to: "/mercado"
             }
-        ],
-        if (this.$store.state.getters["session/isAdmin"]) {
-            links.push({
-                text: "Fondos",
-                to: "/fondo"
-            })
+        ]
+    //     if (this.$store.state.getters["session/isAdmin"]) {
+    //         links.push({
+    //             text: "Fondos",
+    //             to: "/fondo"
+    //         })
 
-    }
-
+    // }
+    return links
+        }
     }
     
 
 }
 </script>
 <style scoped>
-.btn{
-    color: #fff;
-    text-decoration: none;
+.btn {
+  color: #fff;
+  text-decoration: none;
 }
-.about{
-    margin-right: 10px;
+.about {
+  margin-right: 10px;
 }
 </style>

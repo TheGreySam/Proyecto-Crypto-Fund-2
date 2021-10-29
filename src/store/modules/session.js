@@ -3,7 +3,16 @@ import Firebase from "firebase";
 export const sessionModule = {
     namespaced: true,
     state: {
-        user:null,
+        user: null,
+    },
+    getters: {
+        isAdmin(state) {
+            return state.user.rol === "admin";
+        },
+        isUser(state) {
+            return state.user.rol === "user"
+        }
+
     },
     mutation: {
         SET_USER(state, newUser) {
@@ -22,10 +31,13 @@ export const sessionModule = {
                                 newUser.rol = data.rol;
                             }
                         });
+                        context.commit("SET_USER", { email: user.email } || null);
                     });
                     
+                } else {
+                    context.commit("SET_USER", { email: user.email } || null);
                 }
-                context.commit("SET_USER", { email: user.email } || null);
+                context.commit("SET_USER", null);
             });
         },
         async signIn(_context, credentials) {

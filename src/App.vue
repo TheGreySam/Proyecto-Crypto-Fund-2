@@ -36,6 +36,9 @@ export default {
     LoginCard: () => import("./components/Login/LoginCard.vue"),
     RegistrationCard: () => import("./components/Login/RegistrationCard.vue")
 
+  },
+  mounted() {
+    this.$store.dispatch("criptoInfo/subscribe")
   }
 }
 

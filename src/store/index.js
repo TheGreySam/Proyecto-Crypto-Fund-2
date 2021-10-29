@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { criptoInfoModule } from "./modules/criptoInfo.js"
 
 Vue.use(Vuex);
 
@@ -23,5 +24,8 @@ export default new Vuex.Store({
       context.commit("UNLOG_CURRENT_USER", user);
     },
   },
-  modules: {},
+  modules: 
+  { 
+    criptoInfo: criptoInfoModule
+  },
 });

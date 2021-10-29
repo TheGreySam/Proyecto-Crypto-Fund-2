@@ -3,7 +3,7 @@
     <v-container grid-list-md text-xs-center>
       <v-layout row wrap>
         <v-flex xs12 sm6>
-          <v-card hover v-for="coin in coins" :key="coin.id" class="mb-5 pa-5" max-width="28rem">
+          <v-card hover v-for="coin in $store.state.criptoInfo.data" :key="coin.id" class="mb-5 pa-5" max-width="28rem">
             <v-card-text>
               <v-row align="center">
                 <v-col cols="4"> </v-col>
@@ -61,13 +61,7 @@ export default {
     };
   },
 
-  async mounted() {
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-    );
-    const data = await res.json();
-    (this.coins = data), console.log(data);
-  },
+
 };
 </script>
 
