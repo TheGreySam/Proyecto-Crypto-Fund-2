@@ -7,9 +7,19 @@
                 </v-toolbar-title>
             <v-spacer></v-spacer>
 
-            <router-link to="/" class="btn about">Home</router-link>           
-            <router-link to="/mercado" class="btn about">Mercado</router-link>
-            <router-link to="/fondo" class="btn money">Fondos</router-link>
+            transition-group name="fade" tag="div">
+        <template v-if="$store.state.session.user">
+          <v-btn
+            v-for="(link, $index) in links"
+            :key="$index"
+            text
+            :to="link.to"
+          >
+            
+            {{ link.text }}
+          </v-btn>
+        </template>
+      </transition-group>
            
             <v-spacer></v-spacer>
             <a>   
@@ -17,7 +27,7 @@
                 <v-icon>mdi-login</v-icon>
             </a>
              <a>   
-                <router-link to="/login" class="btn login">Registro</router-link>
+                <router-link to="/login" class="btn login" :color="">Registro</router-link>
                 <v-icon>mdi-login</v-icon>
             </a>
         </v-app-bar>
@@ -27,6 +37,27 @@
 
 <script>
 export default{
+    computed: {
+        links: [
+            {
+                text: "Home",
+                to: "/"
+            },
+            {
+                text: "Mercado",
+                to: "/mercado"
+            }
+        ],
+        if (this.$store.state.getters["session/isAdmin"]) {
+            links.push({
+                text: "Fondos",
+                to: "/fondo"
+            })
+
+    }
+
+    }
+    
 
 }
 </script>

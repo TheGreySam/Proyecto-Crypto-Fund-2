@@ -29,19 +29,19 @@
           </v-list-item-content>
           <br>
           <v-list-item-content>
-            <v-list-title class="text-uppercase">
+            <v-list-item-title class="text-uppercase">
               {{coin.symbol}}
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-content>
-            <v-list-title>
+            <v-list-item-title>
               {{coin.current_price}} USD
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-content>
-            <v-list-title>
+            <v-list-item-title>
               Volumen 24H {{coin.total_volume}}
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>

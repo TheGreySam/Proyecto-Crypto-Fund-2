@@ -4,8 +4,10 @@ import Home from "../views/Home.vue";
 import Mercado from "../views/Mercado.vue";
 import Fondo from "../views/Fondo.vue";
 
+import Firebase from "firebase";
 
 Vue.use(VueRouter);
+
 
 const routes = [
   {
@@ -22,6 +24,9 @@ const routes = [
     path: "/fondo",
     name:"Fondo",
     component: Fondo,
+    meta: {
+      requiredLogin: 'true'
+    }
   },
   
  
@@ -32,5 +37,27 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  const currentUser = Firebase.auth().currentUser;
+  const requiredLogin = to.meta.requiredLogin; 
+
+  console.log({ currentUser })
+
+  if(requiredLogin) {
+    if(currentUser) {
+      next();
+      console.log("true");
+    } else {
+      next({ name: "Home"});
+      console.log("false")
+    }
+  } else {
+    next()
+  }
+
+
+ 
+})
 
 export default router;
