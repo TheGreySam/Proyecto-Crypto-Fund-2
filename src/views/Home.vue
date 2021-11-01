@@ -3,6 +3,7 @@
     <div class="v-main__wrap">
       <v-container>
         <Carousel />
+        <Prueba />
  
       </v-container>
     </div>
@@ -15,6 +16,7 @@ export default {
   components: {
     Carousel: () => import("../components/Home/Carousel.vue"),
     Lista: () => import("../components/Lista/Lista.vue"),
+    Prueba: () => import("../components/Login/RegistrationCard.vue"),
   },
   data() {
     return {
