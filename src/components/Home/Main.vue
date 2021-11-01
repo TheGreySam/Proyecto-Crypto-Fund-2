@@ -33,16 +33,16 @@
         </v-row>
       </section>
     </v-container>
-    <section class="us-section">
+    <section >
       <v-parallax  dark src="../../assets/bitcoin-img.jpeg"
-      height="600"
+      height="600" 
     
       >
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-bold pb-5">Sobre Nosotros</h1>
             <v-container>
-              <h4 class="text-h4 font-weight-regular pt-5 mt-5">
+              <h4 class="text-h4 font-weight-regular pt-5 mt-5 text-shadow">
                 Somos una plataforma donde actuarás como tu propio administrador
                 de inversiones del mundo de las criptomonedas. permitiéndote
                 obtener valores y estadísticas sobre el manejo de tus fondos
@@ -61,4 +61,9 @@ export default {};
 </script>
 
 <style scoped>
+.text-shadow {
+  text-shadow: 0px 1px #000000;
+}
+
+
 </style>
