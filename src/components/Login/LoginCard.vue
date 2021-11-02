@@ -1,11 +1,18 @@
 <template>
   <v-row justify="center">
+    <v-btn
+      color="primary"
+      dark
+      @click.stop="dialog = true"
+    >
+      Open Dialog
+    </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">
+      <!-- <template v-slot:activator="{ on, attrs }">
+        <v-btn color="primary" dark :v-bind="attrs" v-on="on">
           Inicia Sesión
         </v-btn>
-      </template>
+      </template> -->
       <v-card>
         <v-toolbar class="cforange" light>
           <v-row>
@@ -47,7 +54,7 @@
                 </v-btn>
                 <p class="text-center pt-5">
                   No tienes cuenta?<a href="#" class="cforange--text link">
-                    Regristrate aquí</a
+                    Registrate aquí</a
                   >
                 </p>
               </v-col>
@@ -78,9 +85,6 @@ export default {
   }),
 
   methods: {
-    validate() {
-      this.$refs.form.validate();
-    },
     buttonLogin() {
       Firebase.auth()
         .signInWithEmailAndPassword(this.email, this.password)
@@ -88,11 +92,13 @@ export default {
           this.$store.dispatch("defineCurrentUser", {
             email: response.user.email,
           });
+           this.$router.push('/fondo')
         })
         .catch(() => {
           this.$swal("Upss, correo o contraseña incorrectos");
         });
     },
+    
   },
 };
 </script>

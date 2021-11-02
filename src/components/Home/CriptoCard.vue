@@ -19,11 +19,11 @@
 
             <v-card-title>
               <h3 v-text="coin.name"></h3>
-              <v-spacer></v-spacer>
-              <h3 v-text="coin.symbol" class="text-uppercase"></h3>
-              <v-spacer></v-spacer>
-              <h3>${{ coin.current_price }} USD</h3>
             </v-card-title>
+            <v-card-text>
+              <h3 v-text="coin.symbol" class="text-uppercase"></h3>
+            </v-card-text>
+
             <v-divider></v-divider>
             <v-card-text>
               <Sparkline />
@@ -42,8 +42,7 @@
               </v-card-title>
             </v-container>
           </v-card>
-        </v-flex>
-      </v-layout>
+      
     </v-container>
   </v-app>
 
@@ -61,9 +60,7 @@ export default {
     };
   },
 
-
 };
 </script>
 
-<style>
-</style>
+<style></style>

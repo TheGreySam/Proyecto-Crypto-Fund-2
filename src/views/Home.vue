@@ -1,10 +1,7 @@
 <template>
   <main class="v-main" style="padding: 56px 0px 0px">
-    <div class="v-main__wrap">
-      <v-container>
-        <Carousel />
- 
-      </v-container>
+    <div class="v-main__wrap">           
+        <MainSection />
     </div>
   </main>
 </template>
@@ -13,8 +10,7 @@
 export default {
   name: "App",
   components: {
-    Carousel: () => import("../components/Home/Carousel.vue"),
-    Lista: () => import("../components/Lista/Lista.vue"),
+    MainSection: () => import("../components/Home/Main.vue"),
   },
 
   

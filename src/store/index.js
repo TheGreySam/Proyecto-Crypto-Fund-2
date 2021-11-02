@@ -23,6 +23,7 @@ export default new Vuex.Store({
     unlogCurrentUser(context, user) {
       context.commit("UNLOG_CURRENT_USER", user);
     },
+
   },
   modules: 
   { 
