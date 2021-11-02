@@ -12,7 +12,7 @@
       
       >
         <v-list-item
-          v-for="coin in coins"
+          v-for="coin in $store.state.criptoInfo.data"
           :key="coin.id"
         >
           <v-list-item-icon>
@@ -29,19 +29,19 @@
           </v-list-item-content>
           <br>
           <v-list-item-content>
-            <v-list-title class="text-uppercase">
+            <v-list-item-title class="text-uppercase">
               {{coin.symbol}}
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-content>
-            <v-list-title>
+            <v-list-item-title>
               {{coin.current_price}} USD
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-content>
-            <v-list-title>
+            <v-list-item-title>
               Volumen 24H {{coin.total_volume}}
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
@@ -59,14 +59,6 @@
     }
   },
 
-  async mounted() {
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-    );
-    const data = await res.json();
-    this.coins = data,
-    console.log(data);
-  },
-  
+
   }
 </script>

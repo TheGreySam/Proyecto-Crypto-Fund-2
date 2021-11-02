@@ -53,12 +53,12 @@
                   @click:append="show1 = !show1"
                   required
                 ></v-text-field>
-                <v-btn block outlined color="cforange" @click="dialog = false">
-                  Entrar
+                <v-btn block outlined color="cforange" @click="buttonRegistration">
+                  Registrarse
                 </v-btn>
                 <p class="text-center pt-5">
-                  No tienes cuenta?<a href="#" class="cforange--text link">
-                    Regristrate aquí</a
+                  Tienes cuenta?<a href="#" class="cforange--text link">
+                    Inicia Sesión aquí</a
                   >
                 </p>
               </v-col>
@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import Firebase from "firebase";
 export default {
   data: () => ({
     dialog: false,
@@ -89,8 +90,18 @@ export default {
   }),
 
   methods: {
-    validate() {
-      this.$refs.form.validate();
+    buttonRegistration() {
+      Firebase.auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((response) => {
+          this.$store.dispatch('defineCurrentUser', {
+            email: response.user.email
+          })
+          this.$router.push('/fondo')
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
   },
 };
