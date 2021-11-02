@@ -5,6 +5,7 @@
       <router-view />
     </v-main>
     <Footer />
+    <LoginCard />
   </v-app>
 </template>
 

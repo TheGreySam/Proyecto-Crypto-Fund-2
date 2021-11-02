@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-app-bar app color="cfdarkblue" dark>
+    <v-app-bar app color="cforange" dark>
       <v-toolbar-title class="pt-2">
         <router-link to="/" class="btn home"
-          ><img src="../../assets/Crypto Fund Logo.png" width="55" alt=""
+          ><img src="../../assets/Crypto Fund Logo.png" width="55" alt="logo"
         /></router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -34,4 +34,5 @@ export default {};
 .about {
   margin-right: 10px;
 }
+
 </style>

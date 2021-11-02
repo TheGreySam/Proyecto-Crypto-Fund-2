@@ -9,7 +9,7 @@
       flat
       tile
     >
-    <v-card-text class="indigo darken-3" white--text>
+    <v-card-text class="cfgray" white--text>
         <div class="footer my-4 text-center">
         <v-row>
             <v-col cols="12" md="4" lg="4">
