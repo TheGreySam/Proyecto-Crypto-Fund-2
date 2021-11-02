@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-container grid-list-md text-xs-center>
-      <v-layout row wrap>
-        <v-flex xs12 sm6>
-          <v-card hover v-for="coin in coins" :key="coin.id" class="mb-5 pa-5" max-width="28rem">
+      <v-row>
+        <v-col cols="12" md="4" v-for="coin in coins" :key="coin.id">
+          <v-card hover class="mb-5 pa-5" max-width="28rem" max-height="35rem">
             <v-card-text>
               <v-row align="center">
                 <v-col cols="4"> </v-col>
@@ -19,11 +19,11 @@
 
             <v-card-title>
               <h3 v-text="coin.name"></h3>
-              <v-spacer></v-spacer>
-              <h3 v-text="coin.symbol" class="text-uppercase"></h3>
-              <v-spacer></v-spacer>
-              <h3>${{ coin.current_price }} USD</h3>
             </v-card-title>
+            <v-card-text>
+              <h3 v-text="coin.symbol" class="text-uppercase"></h3>
+            </v-card-text>
+
             <v-divider></v-divider>
             <v-card-text>
               <Sparkline />
@@ -42,8 +42,8 @@
               </v-card-title>
             </v-container>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </v-app>
   <!--v-container grid-list-md fluid>
@@ -107,7 +107,7 @@ export default {
 
   async mounted() {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=3&page=1&sparkline=false"
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=12&page=1&sparkline=false"
     );
     const data = await res.json();
     (this.coins = data), console.log(data);
@@ -115,5 +115,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

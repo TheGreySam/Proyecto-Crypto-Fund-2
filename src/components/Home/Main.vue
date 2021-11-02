@@ -18,7 +18,7 @@
               x-large
               color="cforange"
               class="white--text"
-              @click="buttonLogin"
+              @click.stop="$store.dispatch('toggleDrawer')"
             >
               REGÍSTRATE GRATIS
             </v-btn>
@@ -33,11 +33,8 @@
         </v-row>
       </section>
     </v-container>
-    <section >
-      <v-parallax  dark src="../../assets/bitcoin-img.jpeg"
-      height="600" 
-    
-      >
+    <section>
+      <v-parallax dark src="../../assets/bitcoin-img.jpeg" height="600">
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-bold pb-5">Sobre Nosotros</h1>
@@ -53,17 +50,23 @@
         </v-row>
       </v-parallax>
     </section>
+    <section>
+      <Carousel />
+    </section>
   </div>
 </template>
 
 <script>
-export default {};
+
+export default {
+  components: {
+    Carousel: () => import("../Home/Carousel.vue"),
+  },
+};
 </script>
 
 <style scoped>
 .text-shadow {
   text-shadow: 0px 1px #000000;
 }
-
-
 </style>
