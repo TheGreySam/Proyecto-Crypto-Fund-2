@@ -7,18 +7,10 @@
                 </v-toolbar-title>
             <v-spacer></v-spacer>
 
-            
-        <!--template v-if="$store.state.session.user">
-          <v-btn
-            v-for="(link, $index) in links"
-            :key="$index"
-            text
-            :to="link.to"
-          >
-            
-            {{ link.text }}
-          </v-btn>
-        </template-->
+           <router-link to="/" class="btn about">Home</router-link>
+           <router-link to="/mercado" class="btn money">Mercado</router-link>
+            <router-link to="/fondo" class="btn money">Fondos</router-link>
+           
       
            
             <v-spacer></v-spacer>

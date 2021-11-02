@@ -24,9 +24,9 @@ const routes = [
     path: "/fondo",
     name:"Fondo",
     component: Fondo,
-    meta: {
-      requiredLogin: 'true'
-    }
+//    meta: {
+//      requiredLogin: 'true'
+//    }
   },
   
  
