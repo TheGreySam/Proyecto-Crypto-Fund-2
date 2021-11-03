@@ -6,6 +6,7 @@
     </v-main>
     <Footer />
     <LoginCard />
+    <RegistrationCard />
   </v-app>
 </template>
 
