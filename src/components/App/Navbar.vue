@@ -1,47 +1,28 @@
 <template>
   <div>
-    <v-app-bar app color="cfdarkblue" dark>
+    <v-app-bar app color="cforange">
       <v-toolbar-title class="pt-2">
-        <router-link to="/" class="btn home"
+        <router-link to="/" class="logo"
           ><img src="../../assets/Crypto Fund Logo.png" width="55" alt=""
         /></router-link>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
+     <v-spacer></v-spacer>
+        <router-link to="/" class="btn about" >Home</router-link>
+        <router-link to="/mercado" class="btn money">Mercado</router-link>
+        <router-link to="/fondo" class="btn money">Fondos</router-link>  
+        <v-spacer></v-spacer>
 
-           <router-link to="/" class="btn about">Home</router-link>
-           <router-link to="/mercado" class="btn money">Mercado</router-link>
-            <router-link to="/fondo" class="btn money">Fondos</router-link>
-           
-      
-           
-            <v-spacer></v-spacer>
-            <a>   
-                <router-link to="/login" class="btn login">Inicia sesión</router-link>
-                <v-icon>mdi-login</v-icon>
-            </a>
-             <a>   
-                <router-link to="/login" class="btn login">Registro</router-link>
-                <v-icon>mdi-login</v-icon>
-            </a>
-        </v-app-bar>
+        <LoginCard />
+      </v-app-bar>
     </div>
-</template>
-
-      <v-spacer></v-spacer>
-      <a>
-        <router-link to="/login" class="btn login">Inicia sesión</router-link>
-        <v-icon>mdi-login</v-icon>
-      </a>
-      <a>
-        <router-link to="/login" class="btn login">Registro</router-link>
-        <v-icon>mdi-login</v-icon>
-      </a>
-    </v-app-bar>
-  </div>
 </template>
 
 <script>
 export default{
+     components:{
+        LoginCard: () => import("../Login/LoginCard.vue"),
+
+    },
     computed: {
         links() {
             
@@ -71,11 +52,20 @@ export default{
 }
 </script>
 <style scoped>
+.logo{
+   border-bottom: none !important; 
+}
+.router-link-exact-active{
+    border-bottom: 1px solid #000;
+}
 .btn {
   color: #fff;
   text-decoration: none;
 }
-.about {
+.btn:hover{
+    opacity: 0.60;
+}
+.about, .money {
   margin-right: 10px;
 }
 </style>
