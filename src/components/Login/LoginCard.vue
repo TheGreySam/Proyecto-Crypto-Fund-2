@@ -1,13 +1,14 @@
 <template>
-  <v-row justify="center">
+  <div justify="center">
     <v-btn
-      color="primary"
-      dark
+      text depressed
+      class="btn-session"
       @click.stop="dialog = true"
     >
-      Open Dialog
+      Inicia sesión
+       <v-icon>mdi-login</v-icon>
     </v-btn>
-    <v-dialog v-model="dialog" persistent max-width="400px">
+    <v-dialog v-model="dialog" persistent max-width="500px">
       <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn color="primary" dark :v-bind="attrs" v-on="on">
           Inicia Sesión
@@ -15,7 +16,7 @@
       </template> -->
       <v-card>
         <v-toolbar class="cforange" light>
-          <v-row>
+          <v-row justify="center">
             <v-col cols="10">
               <h3 class="pt-3 pl-5 white--text">Inicia Sesión</h3>
             </v-col>
@@ -52,23 +53,24 @@
                 <v-btn block outlined color="cforange" @click="buttonLogin">
                   Entrar
                 </v-btn>
-                <p class="text-center pt-5">
-                  No tienes cuenta?<a href="#" class="cforange--text link">
-                    Registrate aquí</a
-                  >
-                </p>
+                
+                    <RegistrationCard />
+              
               </v-col>
             </v-row>
           </v-container>
         </v-card-text>
       </v-card>
     </v-dialog>
-  </v-row>
+  </div>
 </template>
 
 <script>
 import Firebase from "firebase";
 export default {
+   components:{
+        RegistrationCard: () => import("../Login/RegistrationCard.vue"),
+    },
   data: () => ({
     dialog: false,
     valid: true,
@@ -106,5 +108,12 @@ export default {
 <style scoped>
 .link {
   text-decoration: none;
+}
+.btn-session{
+  border-radius: 0;
+  color: #fff;
+  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
+  background: linear-gradient(to bottom right, #464b96, #FA7921);
+  font-size: 12px;
 }
 </style>

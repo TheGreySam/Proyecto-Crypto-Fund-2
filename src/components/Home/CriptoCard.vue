@@ -48,12 +48,8 @@
               </v-card-title>
             </v-container>
           </v-card>
-<<<<<<< HEAD
         </v-flex>
       </v-layout>
-=======
-      
->>>>>>> parent of aa15f10 (12 commit)
     </v-container>
   </v-app>
 </template>

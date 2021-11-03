@@ -1,10 +1,13 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="400px">
+    <v-dialog v-model="dialog" persistent max-width="500px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">
-          Registrate
-        </v-btn>
+        <p class="text-center pt-5">
+          No tienes cuenta?
+          <v-btn text depressed v-bind="attrs" v-on="on">
+            Registrate
+          </v-btn>
+          </p>
       </template>
       <v-card>
         <v-toolbar class="cforange" light>
@@ -56,11 +59,6 @@
                 <v-btn block outlined color="cforange" @click="buttonRegistration">
                   Registrarse
                 </v-btn>
-                <p class="text-center pt-5">
-                  Tienes cuenta?<a href="#" class="cforange--text link">
-                    Inicia Sesión aquí</a
-                  >
-                </p>
               </v-col>
             </v-row>
           </v-container>
