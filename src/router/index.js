@@ -38,26 +38,26 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const currentUser = Firebase.auth().currentUser;
-  const requiredLogin = to.meta.requiredLogin; 
+//router.beforeEach((to, from, next) => {
+//  const currentUser = Firebase.auth().currentUser;
+//  const requiredLogin = to.meta.requiredLogin; 
 
-  console.log({ currentUser })
+//  console.log({ currentUser })
 
-  if(requiredLogin) {
-    if(currentUser) {
-      next();
-      console.log("true");
-    } else {
-      next({ name: "Home"});
-      console.log("false")
-    }
-  } else {
-    next()
-  }
+//  if(requiredLogin) {
+//    if(currentUser) {
+//      next();
+//      console.log("true");
+//    } else {
+//      next({ name: "Home"});
+//      console.log("false")
+//    }
+//  } else {
+//    next()
+//  }
 
 
  
-})
+//})
 
 export default router;
