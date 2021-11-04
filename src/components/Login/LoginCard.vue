@@ -5,7 +5,7 @@
       dark
       @click.stop="dialog = true"
     >
-      Open Dialog
+      Login
     </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
       <!-- <template v-slot:activator="{ on, attrs }">

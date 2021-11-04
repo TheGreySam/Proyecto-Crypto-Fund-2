@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <v-card class="mx-auto">
+    
       
 
       <v-container fluid>
         <v-row dense>
           <v-col>
             <v-card max-width="344" outlined elevation="2" class="pa-5">
-                <h3>Criptomonedas Agrupadas</h3>
+                
               <v-btn
                 elevation="2"
                 dark
@@ -62,7 +62,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-card>
+   
     <v-layout> </v-layout>
   </div>
 </template>
@@ -131,7 +131,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
