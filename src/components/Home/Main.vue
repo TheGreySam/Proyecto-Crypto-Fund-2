@@ -5,19 +5,18 @@
         <v-row>
           <v-col cols="6">
             <h1 class="text-h1 text-left font-weight-bold cfdarkblue--text">. . .</h1>
-            <h1 class="text-h1 text-left  font-weight-bold cfdarkblue--text pb-5">
+            <h1 class="title-home text-h1 text-left  font-weight-bold cfdarkblue--text pb-5">
               CRYTO FUND
             </h1>
-            <h3 class="text-h4 text-left  font-weight-regular pb-5">
+            <h3 class="text-h4 text-left  font-weight-regular pb-5 subtitle-home">
               Tus inversiones de criptomonedas suelen estar repartidas en varios
               Exchanges y Wallets ¿ Te gustaría administrar todas desde un mismo
               lugar ?
             </h3>
             <v-btn
-              depressed
+              text
               x-large
-              color="cforange"
-              class="white--text"
+              class="btn-home"
               @click.stop="$store.dispatch('toggleDrawer')"
             >
               REGÍSTRATE GRATIS
@@ -25,8 +24,9 @@
           </v-col>
           <v-col cols="6" class="d-flex justify-center">
             <img
+            class=""
               src="../../assets/Crypto Fund Logo.png"
-              width="500"
+              width="450"
               alt="logo"
             />
           </v-col>
@@ -66,7 +66,33 @@ export default {
 </script>
 
 <style scoped>
+.title-home{
+   animation-duration: 3s;
+  animation-name: slidein; 
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 .text-shadow {
   text-shadow: 0px 3px #000000;
 }
+.btn-home{
+  border: 2px solid #FA7921;
+  border-radius: 0;
+}
+.btn-home:hover{
+  background-color: #FA7921;
+  color: #fff;
+  transition: 1s all ease;
+}
+
+ 
 </style>

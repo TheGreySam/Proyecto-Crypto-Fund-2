@@ -1,14 +1,12 @@
 <template>
-  <v-app>
-    <v-container grid-list-md text-xs-center>
-      <v-layout row wrap>
-        <v-flex xs12 sm6>
-          <v-card
+<v-row >
+
+    <v-card
             hover
             v-for="coin in $store.state.criptoInfo.data"
             :key="coin.id"
-            class="mb-5 pa-5"
-            max-width="28rem"
+            class="mb-5 pa-5 mx-auto"
+            max-width="25rem"
           >
             <v-card-text>
               <v-row align="center">
@@ -48,14 +46,8 @@
               </v-card-title>
             </v-container>
           </v-card>
-<<<<<<< HEAD
-        </v-flex>
-      </v-layout>
-=======
-      
->>>>>>> parent of aa15f10 (12 commit)
-    </v-container>
-  </v-app>
+ 
+</v-row>
 </template>
 
 <script>

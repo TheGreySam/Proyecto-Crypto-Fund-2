@@ -17,7 +17,8 @@ export default {
     Navbar: () => import("./components/App/Navbar"),
     Footer: () => import("./components/App/Footer.vue"),
     LoginCard: () => import("./components/Login/LoginCard.vue"),
-    RegistrationCard: () => import("./components/Login/RegistrationCard.vue")
+    RegistrationCard: () => import("./components/Login/RegistrationCard.vue"),
+    Slider: () => import("./components/Home/Slider.vue")
 
   },
   mounted() {

@@ -1,8 +1,8 @@
 <template>
   <v-container grid-list-md fluid>
-    <div>
+   
       <CriptoCard />
-      <br />
+      <!-- <br />
       <v-carousel cycle :show-arrows="false" hide-delimiters>
         <v-carousel-item
           v-for="(item, i) in items"
@@ -12,7 +12,7 @@
         ></v-carousel-item>
       </v-carousel>
     </div>
-    <br />
+    <br /> -->
   </v-container>
 </template>
 
