@@ -10,7 +10,7 @@
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text">Registrate</h3>
+              <h3 class="pt-3 pl-5 white--text ml-5">Registrate</h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="resetModal">
@@ -59,7 +59,7 @@
                     block
                     outlined
                     color="cforange"
-                    :disabled="(this.password === this.confirmPassword)  ? disabled : true"
+                    :disabled="(this.password === this.confirmPassword && this.password !== '' && this.email !== '')  ? disabled : true"
                     @click="buttonRegistration"
                   >
                     Registrarse
@@ -90,7 +90,7 @@ export default {
   data: () => ({
     dialog: false,
     valid: true,
-    password: "",
+    password: '',
     confirmPassword: "",
     show1: false,
     passwordRules: {
@@ -127,7 +127,7 @@ export default {
   computed: {
     passwordConfirmationRule() {
       return () => (this.password === this.confirmPassword)  || 'Las contraseñas son distintas'
-    }
+    },
 }
 };
 </script>

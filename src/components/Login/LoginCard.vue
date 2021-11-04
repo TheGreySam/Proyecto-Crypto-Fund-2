@@ -8,7 +8,7 @@
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text">Inicia Sesión</h3>
+              <h3 class="pt-3 pl-5 white--text ml-5">Inicia Sesión</h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="resetModal">
