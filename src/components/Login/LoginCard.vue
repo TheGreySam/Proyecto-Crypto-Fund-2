@@ -90,13 +90,17 @@ export default {
           this.dialog = false;
         })
         .catch(() => {
-          this.$swal("Upss, correo o contraseña incorrectos");
+          this.$swal({
+            icon: "error",
+            title: "Oops...",
+            text: "Correo o contraseña incorrectos ",
+          });
         });
     },
     resetModal() {
-      this.$refs.form.resetValidation()
-      this.$refs.form.reset()
-      this.dialog = false
+      this.$refs.form.resetValidation();
+      this.$refs.form.reset();
+      this.dialog = false;
     },
   },
 };
