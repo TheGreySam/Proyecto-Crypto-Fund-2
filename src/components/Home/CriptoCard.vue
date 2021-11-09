@@ -27,7 +27,7 @@
               <h3 v-text="coin.name"></h3>
             </v-card-title>
             <v-card-text>
-              <h3 v-text="coin.symbol" class="text-uppercase"></h3>
+              <h3 v-text="coin.symbol" class="text-uppercase text-left"></h3>
             </v-card-text>
 
             <v-divider></v-divider>
@@ -53,8 +53,8 @@
             <v-divider></v-divider>
             <v-container>
               <v-card-title>
-                Valor actual: $
-                {{
+                Valor actual: 
+                ${{
                   coin.current_price.toLocaleString("de-DE", {
                     maximumSignificantDigits: 10,
                   })
@@ -62,7 +62,7 @@
                 USD
               </v-card-title>
               <v-card-title>
-                Volumen 24H: {{ coin.total_volume.toLocaleString("de-DE") }} USD
+              Vol. 24H: ${{ coin.total_volume.toLocaleString("de-DE") }} USD
               </v-card-title>
             </v-container>
           </v-card>
@@ -74,11 +74,6 @@
 
 <script>
 export default {
-  name: "App",
-  
-  components: {
-    Sparkline: () => import("@/components/Home/Sparkline"),
-  },
 };
 </script>
 

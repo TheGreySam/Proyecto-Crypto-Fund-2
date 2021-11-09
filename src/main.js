@@ -8,6 +8,7 @@ import "./plugins/vue-gravatar";
 import "./plugins/sweetalert2";
 import vuetify from "./plugins/vuetify";
 
+
 import Chartkick from 'vue-chartkick';
 import Chart from 'chart.js';
 
