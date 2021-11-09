@@ -1,68 +1,61 @@
 <template>
   <div id="app">
-    
-      
+    <v-container fluid>
+      <v-row dense>
+        <v-col>
+          <div class="pb-3">
+            <v-btn
+              elevation="2"
+              dark
+              raised
+              color="cforange"
+              @click="addExperience"
+              >Añadir Moneda</v-btn
+            >
+          </div>
+          <div class="Chart">
+            <DoughnutExample
+              ref="skills_chart"
+              :chart-data="chartData"
+              :options="options"
+            >
+            </DoughnutExample>
+            <v-layout row wrap>
+              <v-flex>
+                <div v-for="(val, i) in currentDataSet" :key="i">
+                  <v-row no-gutters>
+                    <v-col cols="12" sm="6" md="8">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        placeholder="coin"
+                        :value="currentDataSet[i]"
+                        @input="updateAmount($event.target.value, i)"
+                      />
+                      <h3>{{ currentDataSet[i] }} %</h3>
+                      <input
+                        type="text"
+                        :value="chartData.labels[i]"
+                        @input="updateName($event.target.value, i)"
+                      />
+                      <v-btn color="error" @click="remove(i)">Eliminar</v-btn>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col> </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="2"> </v-col>
+                    <v-col cols="2"> </v-col>
+                  </v-row>
 
-      <v-container fluid>
-        <v-row dense>
-          <v-col>
-            <v-card max-width="344" outlined elevation="2" class="pa-5">
-              
-              <v-btn
-                elevation="2"
-                dark
-                raised
-                color="cforange"
-                @click="addExperience"
-                >Añadir Moneda</v-btn
-              >
-              <div class="Chart">
-                <DoughnutExample
-                  ref="skills_chart"
-                  :chart-data="chartData"
-                  :options="options"
-                >
-                </DoughnutExample>
-                <v-layout row wrap>
-                  <v-flex>
-                    <div v-for="(val, i) in currentDataSet" :key="i">
-                      <v-row no-gutters>
-                        <v-col cols="12" sm="6" md="8">
-                          <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            placeholder="coin"
-                            :value="currentDataSet[i]"
-                            @input="updateAmount($event.target.value, i)"
-                          />
-                          <h3>{{ currentDataSet[i] }} %</h3>
-                          <input
-                            type="text"
-                            :value="chartData.labels[i]"
-                            @input="updateName($event.target.value, i)"
-                          />
-                          <v-btn color="error" @click="remove(i)"
-                            >Eliminar</v-btn
-                          >
-                        </v-col>
-                        <v-spacer></v-spacer>
-                        <v-col> </v-col>
-                        <v-spacer></v-spacer>
-                        <v-col cols="2"> </v-col>
-                        <v-col cols="2"> </v-col>
-                      </v-row>
-
-                      <v-spacer></v-spacer>
-                    </div>
-                  </v-flex>
-                </v-layout>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    
+                  <v-spacer></v-spacer>
+                </div>
+              </v-flex>
+            </v-layout>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -98,7 +91,6 @@ export default {
   computed: {
     currentDataSet() {
       return this.chartData.datasets[0].data;
-      
     },
   },
   methods: {
