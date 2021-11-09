@@ -15,7 +15,7 @@
               <h3 class="pt-3 pl-5 white--text text-center">Inicia Sesión</h3>
             </v-col>
             <v-col cols="2">
-              <v-btn icon @click="dialog = false">
+              <v-btn icon @click="resetForm">
                 <v-icon class="white--text">mdi-close</v-icon>
               </v-btn>
             </v-col>
@@ -25,6 +25,7 @@
           <v-container>
             <v-row>
               <v-col cols="12">
+                 <v-form ref="form" v-model="valid" lazy-validation>
                 <v-text-field
                   label="Correo Electrónico"
                   v-model="email"
@@ -45,6 +46,7 @@
                   @click:append="show1 = !show1"
                   required
                 ></v-text-field>
+                 </v-form>
                 <v-btn block outlined color="cforange" @click="buttonLogin">
                   Entrar
                 </v-btn>
@@ -89,10 +91,15 @@ export default {
             email: response.user.email,
           });
            this.$router.push('/fondo')
+            this.dialog = false
         })
         .catch(() => {
           this.$swal("Upss, correo o contraseña incorrectos");
         });
+    },
+    resetForm() {
+      this.dialog = false;
+      this.$refs.form.reset();
     },
     
   },

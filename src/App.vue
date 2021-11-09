@@ -20,7 +20,7 @@ export default {
     this.$store.dispatch("criptoInfo/subscribe")
   }
 
-
+  
 }
 </script>
 
