@@ -13,7 +13,7 @@ elevation="0"
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
-        <router-link to="/" class="btn about" >Home</router-link>
+        <router-link to="/" class="btn about" >Inicio</router-link>
         <router-link to="/mercado" class="btn money">Mercado</router-link>
         <router-link to="/fondo" class="btn graf">Fondos</router-link>
         <LoginCard /> 
