@@ -1,10 +1,9 @@
 <template>
   <v-card
     class="mx-auto"
-    
     tile
   >
-  
+
     <v-list rounded>
       <v-subheader></v-subheader>
       <v-list-item-group

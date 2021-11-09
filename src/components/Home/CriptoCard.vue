@@ -32,28 +32,42 @@
 
             <v-divider></v-divider>
             <v-card-text>
-              <Sparkline />
+              <v-sheet
+                class="v-sheet--offset mx-auto"
+                color="cfwhite"
+                elevation="0"
+                max-width="calc(100% - 32px)"
+              >
+                <v-sparkline
+                  
+                  :value="coin.sparkline_in_7d.price"
+                  :color="coin.price_change_percentage_24h > 0
+                  ? `success`
+                  : `red`"
+                  line-width="1"
+                  padding="16"
+                  
+                ></v-sparkline>
+              </v-sheet>
             </v-card-text>
             <v-divider></v-divider>
             <v-container>
               <v-card-title>
-                Valor actual:
-                <v-spacer></v-spacer>
-                Volumen 24H
+                Valor actual: $
+                {{
+                  coin.current_price.toLocaleString("de-DE", {
+                    maximumSignificantDigits: 10,
+                  })
+                }}
+                USD
               </v-card-title>
               <v-card-title>
-                $ {{ coin.current_price }} USD
-                <v-spacer></v-spacer>
-                {{ coin.total_volume }}
+                Volumen 24H: {{ coin.total_volume.toLocaleString("de-DE") }} USD
               </v-card-title>
             </v-container>
           </v-card>
-<<<<<<< HEAD
         </v-flex>
       </v-layout>
-=======
-      
->>>>>>> parent of aa15f10 (12 commit)
     </v-container>
   </v-app>
 </template>
@@ -61,15 +75,10 @@
 <script>
 export default {
   name: "App",
+  
   components: {
     Sparkline: () => import("@/components/Home/Sparkline"),
   },
-  data() {
-    return {
-      coins: [],
-    };
-  },
-
 };
 </script>
 
