@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+     <SectionHero msg="Fondos"/>
     <v-container>
       <v-card class="mx-auto">
       <v-toolbar color="cfdarkblue" dark>
@@ -135,11 +136,12 @@
 <script>
 import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
 import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
+import SectionHero from "../components/SectionHero.vue";
 
 
 export default {
   name: "App",
-  components: { GraficoTortaCripto, GraficoTortaPorcentaje },
+  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero },
   
 }
 </script>

@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <v-app-bar app color="cforange">
-      <v-toolbar-title class="pt-2">
-        <router-link to="/" class="logo"
+<v-app-bar
+class="header"
+elevation="0"
+>
+  <v-app-bar-nav-icon>
+    <router-link to="/" class="logo"
           ><img src="../../assets/Crypto Fund Logo.png" width="55" alt=""
         /></router-link>
-      </v-toolbar-title>
-     <v-spacer></v-spacer>
+  </v-app-bar-nav-icon>
+    <v-toolbar-title>Crypto Fund</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
         <router-link to="/" class="btn about" >Home</router-link>
         <router-link to="/mercado" class="btn money">Mercado</router-link>
-        <router-link to="/fondo" class="btn money">Fondos</router-link>  
-        <v-spacer></v-spacer>
-
-        <LoginCard />
-      </v-app-bar>
-    </div>
+        <router-link to="/fondo" class="btn graf">Fondos</router-link>
+        <LoginCard /> 
+</v-app-bar>
 </template>
 
 <script>
@@ -52,6 +55,12 @@ export default{
 }
 </script>
 <style scoped>
+.header{
+  position: absolute;
+  color: #fff;
+  z-index: 1;
+  background-color: transparent !important;
+}
 .logo{
    border-bottom: none !important; 
 }
@@ -65,8 +74,8 @@ export default{
 .btn:hover{
     opacity: 0.60;
 }
-.about, .money {
-  margin-right: 10px;
+.about, .money, .graf{
+  margin-right: 15px;
 }
 
 </style>

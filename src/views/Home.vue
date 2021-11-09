@@ -1,5 +1,5 @@
 <template>
-  <main class="v-main" style="padding: 56px 0px 0px">
+  <main class="v-main" >
     <div class="v-main__wrap">           
         <MainSection />
     </div>

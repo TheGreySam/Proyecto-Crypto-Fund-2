@@ -1,11 +1,11 @@
 <template>
-  <v-row justify="center">
-    <v-btn
-      color="primary"
-      dark
+  <v-row>
+   <v-btn text depressed
+      class="btn-session"
       @click.stop="dialog = true"
     >
-      Login
+      Inicia sesión
+          <v-icon>mdi-login</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
       <!-- <template v-slot:activator="{ on, attrs }">
@@ -17,7 +17,7 @@
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text">Inicia Sesión</h3>
+              <h3 class="pt-3 pl-5 white--text text-center">Inicia Sesión</h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="dialog = false">
@@ -106,5 +106,13 @@ export default {
 <style scoped>
 .link {
   text-decoration: none;
+}
+.btn-session{
+  border-radius: 0;
+  color: #fff;
+  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
+  background: linear-gradient(to bottom right, #464b96, #FA7921);
+  font-size: 12px;
+   margin-left: 20px;
 }
 </style>

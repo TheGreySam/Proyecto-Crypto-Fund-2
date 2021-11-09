@@ -1,14 +1,9 @@
 <template>
-  <v-app>
-    <v-container grid-list-md text-xs-center>
-      <v-layout row wrap>
-        <v-flex xs12 sm6>
+ 
+  
           <v-card
             hover
-            v-for="coin in $store.state.criptoInfo.data"
-            :key="coin.id"
-            class="mb-5 pa-5"
-            max-width="28rem"
+            class="mb-5 pa-5 mx-auto"
           >
             <v-card-text>
               <v-row align="center">
@@ -52,7 +47,7 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-container>
-              <v-card-title>
+              <v-card-title class="card-title-cripto">
                 Valor actual: $
                 {{
                   coin.current_price.toLocaleString("de-DE", {
@@ -61,25 +56,34 @@
                 }}
                 USD
               </v-card-title>
-              <v-card-title>
+              <v-card-title class="card-title-cripto">
                 Volumen 24H: {{ coin.total_volume.toLocaleString("de-DE") }} USD
               </v-card-title>
             </v-container>
           </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-app>
+
 </template>
 
 <script>
 export default {
   name: "App",
+   props: {
+        coin: { type: Object, required: true }
+    },
   
   components: {
     Sparkline: () => import("@/components/Home/Sparkline"),
   },
+  data() {
+    return {
+      coins: [],
+    };
+  },
 };
 </script>
 
-<style></style>
+<style>
+.card-title-cripto{
+  font-size: 16px;
+}
+</style>

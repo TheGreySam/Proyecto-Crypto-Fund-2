@@ -1,4 +1,6 @@
 <template>
+<div>
+<SectionHero msg="Mercado" />
   <v-container>
     <h1 class="text-center py-5">Lista de Monedas</h1>
 
@@ -60,11 +62,15 @@
       </template>
     </v-simple-table>
   </v-container>
+</div>
 </template>
 
 <script>
 export default {
   name: "App",
+  components: {
+    SectionHero: () => import("../components/SectionHero.vue")
+  },
 
   data() {
     return {
