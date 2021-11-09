@@ -5,7 +5,7 @@ elevation="0"
 >
   <v-app-bar-nav-icon>
     <router-link to="/" class="logo"
-          ><img src="../../assets/Crypto Fund Logo.png" width="55" alt=""
+          ><img src="https://cdn.discordapp.com/attachments/900147313304027266/907404002667409459/cryptoFundLogo3d.png" width="55" alt=""
         /></router-link>
   </v-app-bar-nav-icon>
     <v-toolbar-title>Crypto Fund</v-toolbar-title>

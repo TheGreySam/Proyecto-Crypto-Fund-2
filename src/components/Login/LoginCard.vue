@@ -8,11 +8,6 @@
           <v-icon>mdi-login</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
-      <!-- <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark :v-bind="attrs" v-on="on">
-          Inicia Sesión
-        </v-btn>
-      </template> -->
       <v-card>
         <v-toolbar class="cforange" light>
           <v-row>

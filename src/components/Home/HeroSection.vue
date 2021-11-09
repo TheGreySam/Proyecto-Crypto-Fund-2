@@ -30,7 +30,7 @@
           <v-col cols="6" class="d-flex justify-center">
             <div class="hero-img">
             <img
-              src="../../assets/Crypto Fund Logo.png"
+              src="https://cdn.discordapp.com/attachments/900147313304027266/907404002667409459/cryptoFundLogo3d.png"
               width="500"
               alt="logo"
             />
