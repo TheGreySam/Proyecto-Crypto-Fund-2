@@ -59,7 +59,7 @@
                 <v-btn
                   block
                   outlined
-                  color="cforange"
+                  color="cfdarkblue"
                   :disabled="
                     this.password === this.confirmPassword &&
                     this.password !== ''

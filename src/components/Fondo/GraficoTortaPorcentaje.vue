@@ -28,8 +28,8 @@
                       <input
                         type="range"
                         min="0"
-                        max="100"
-                        placeholder="coin"
+                        max="50"
+                        placeholder="Participante"
                         :value="currentDataSet[i]"
                         @input="updateAmount($event.target.value, i)"
                       />

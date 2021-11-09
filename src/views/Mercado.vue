@@ -6,12 +6,13 @@
 
     <v-form ref="form">
       <v-text-field
+      
         dark
         outlined
         class="px-5"
         placeholder="Buscar Moneda"
         background-color="grey darken-4"
-        color="grey darken-4"
+        color="white"
         @keyup="searchCoin()"
         v-model="textSearch"
       ></v-text-field>
@@ -106,4 +107,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+input[type="text"], textarea {
+
+  background-color : white; 
+
+}
+</style>

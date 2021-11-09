@@ -16,7 +16,7 @@ export const criptoInfoModule = {
         );
         const data = await res.json();
         context.commit("SET_DATA", data);
-      }, 5000);
+      }, 10000);
     },
   },
 };
