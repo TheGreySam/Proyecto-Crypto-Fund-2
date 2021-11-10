@@ -8,14 +8,14 @@ elevation="0"
           ><img src="https://cdn.discordapp.com/attachments/900147313304027266/907404002667409459/cryptoFundLogo3d.png" width="55" alt=""
         /></router-link>
   </v-app-bar-nav-icon>
-    <v-toolbar-title>Crypto Fund</v-toolbar-title>
+    <v-toolbar-title class="text-shadow">Crypto Fund</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
-        <router-link to="/" class="btn about" >Inicio</router-link>
-        <router-link to="/mercado" class="btn money">Mercado</router-link>
-        <router-link to="/fondo" class="btn graf">Fondos</router-link>
+        <router-link to="/" class="btn about text-shadow" >Inicio</router-link>
+        <router-link to="/mercado" class="btn money text-shadow">Mercado</router-link>
+        <router-link to="/fondo" class="btn graf text-shadow">Fondos</router-link>
         <LoginCard /> 
 </v-app-bar>
 </template>
@@ -76,6 +76,9 @@ export default{
 }
 .about, .money, .graf{
   margin-right: 15px;
+}
+.text-shadow {
+  text-shadow: 0px 3px #000000;
 }
 
 </style>

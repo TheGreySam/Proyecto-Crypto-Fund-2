@@ -24,7 +24,7 @@
                 <h2 class="text-h2 font-weight-bold pb-5 text-shadow about-title">Sobre Nosotros</h2>
                 <h3 class="text-h5 text-left  font-weight-regular pb-5">
                 Somos una plataforma donde actuarás como tu propio administrador
-                de inversiones del mundo de las criptomonedas. permitiéndote
+                de inversiones del mundo de las criptomonedas, permitiéndote
                 obtener valores y estadísticas sobre el manejo de tus fondos
                 electrónicos de manera sencilla, organizada y eficiente.
                 </h3>
