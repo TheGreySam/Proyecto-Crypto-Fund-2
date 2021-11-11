@@ -4,7 +4,7 @@
     <v-container>
       <v-card class="mx-auto">
       <v-toolbar color="cfdarkblue" dark>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+       
 
         <v-toolbar-title>Tu fondo 1</v-toolbar-title>
 
@@ -12,15 +12,16 @@
       </v-toolbar>
 
       <div>
+      
       <v-row>
         
-        <v-menu offset-y>
-          <template>
-            <v-btn>Latest Reports</v-btn>
-          </template>
-        </v-menu>
-      </v-row>
-      <v-row>
+        <v-col lg="3" sm="6" md="5" cols="12">
+          <UserInfo />
+          <v-card class="mx-1 mb-1">
+            
+           
+          </v-card>
+        </v-col>
         <v-col lg="3" sm="6" md="5" cols="12">
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-6 pb-3">
@@ -137,11 +138,12 @@
 import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
 import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
 import SectionHero from "../components/SectionHero.vue";
+import UserInfo from "@/components/Fondo/UserInfo";
 
 
 export default {
   name: "App",
-  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero },
+  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero, UserInfo },
   
 }
 </script>
