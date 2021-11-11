@@ -21,6 +21,7 @@
           <v-col cols="6" class="d-flex justify-center">
             <div class="hero-img">
             <img
+            class="hidden-md-and-down"
               src="../../assets/cryptoFundLogo3d.png"
               width="500"
               alt="logo"

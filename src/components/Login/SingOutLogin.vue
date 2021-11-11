@@ -1,7 +1,7 @@
 <template>
     <div>
          <v-btn class="btn-out" @click="handleLogout" text text-shadow depressed white--text>
-            {{ $store.state.currentUser ? $store.state.currentUser.email : "No existe" }}
+            <div class="hidden-md-and-down">{{ $store.state.currentUser ? $store.state.currentUser.email : "No existe" }}</div>
             <v-icon right>mdi-logout</v-icon>
         </v-btn>
       
@@ -12,16 +12,6 @@
 <script>
 export default {
     name: 'Singoutlogin',
-
-    data() {
-        return {
-            
-        };
-    },
-
-    mounted() {
-        
-    },
 
     methods: {
       async handleLogout() {

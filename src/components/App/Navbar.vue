@@ -16,8 +16,6 @@ elevation="0"
         <router-link to="/" class="btn about text-shadow" >Inicio</router-link>
         <router-link to="/mercado" class="btn money text-shadow">Mercado</router-link>
         <router-link to="/fondo" class="btn graf text-shadow" v-show="$store.state.currentUser">Fondos</router-link>
-  
-
         <template v-if="$store.state.currentUser">
           <SingOutLogin />
         </template>
