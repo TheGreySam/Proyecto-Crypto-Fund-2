@@ -5,11 +5,11 @@
         <v-row>
           <v-col cols="6">
             <div class="hero-text">
-            <h1 class="text-h1 text-left font-weight-bold">. . .</h1>
-            <h1 class="text-h1 text-left  font-weight-bold pb-5">
-              CRYTO FUND
+            <h1 class="text-h1 text-left text-shadow font-weight-bold">. . .</h1>
+            <h1 class="text-h1 text-left text-shadow font-weight-bold pb-5">
+              CRYPTO FUND
             </h1>
-            <h3 class="text-h5 text-left  font-weight-regular pb-5">
+            <h3 class="text-h5 text-left text-shadow font-weight-regular pb-5">
               Tus inversiones de criptomonedas suelen estar repartidas en varios
               Exchanges y Wallets ¿ Te gustaría administrar todas desde un mismo
               lugar ?
@@ -21,7 +21,7 @@
           <v-col cols="6" class="d-flex justify-center">
             <div class="hero-img">
             <img
-              src="https://cdn.discordapp.com/attachments/900147313304027266/907404002667409459/cryptoFundLogo3d.png"
+              src="../../assets/cryptoFundLogo3d.png"
               width="500"
               alt="logo"
             />
@@ -55,6 +55,9 @@ export default {
 }
 .hero-text, .hero-img{
   margin-top: 110px;
+}
+.text-shadow {
+  text-shadow: 0px 3px #000000;
 }
 
 </style>

@@ -20,7 +20,7 @@
             </v-col>
             <v-col cols="12" md="4" lg="4">
                 <div class="px-8">
-                    <img class="img-footer" src="../../assets/Crypto Fund Logo.png" width="120" height="120"  alt="imgen">
+                    <img class="img-footer" src="../../assets/cryptoFundLogo3d.png" width="120" height="120"  alt="imgen">
                     <p>Crypto Fund, permitir realizar distintas operaciones con los datos proporcionados por el usuario.</p>
                 </div>
             </v-col>

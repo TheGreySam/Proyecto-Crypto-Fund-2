@@ -1,6 +1,6 @@
 <template>
     <div>
-         <v-btn class="btn-out" @click="handleLogout" text depressed white--text>
+         <v-btn class="btn-out" @click="handleLogout" text text-shadow depressed white--text>
             {{ $store.state.currentUser ? $store.state.currentUser.email : "No existe" }}
             <v-icon right>mdi-logout</v-icon>
         </v-btn>
@@ -35,5 +35,8 @@ export default {
 <style lang="scss" scoped>
 .btn-out{
     color: #fff;
+}
+.text-shadow {
+  text-shadow: 0px 3px #000000;
 }
 </style>

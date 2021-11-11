@@ -18,7 +18,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("criptoInfo/subscribe")
-    this.$store.dispatch("session/subscribeToAuthStateChange");
   }
 
   

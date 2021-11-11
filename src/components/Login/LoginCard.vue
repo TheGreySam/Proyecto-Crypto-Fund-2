@@ -1,18 +1,17 @@
 <template>
   <v-row>
-   <v-btn text depressed
-      class="btn-session"
-      @click.stop="dialog = true"
-    >
+    <v-btn text depressed class="btn-session" @click.stop="dialog = true">
       Inicia sesión
-          <v-icon>mdi-login</v-icon>
+      <v-icon>mdi-login</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
       <v-card>
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text text-center">Inicia Sesión</h3>
+              <h3 class="pt-3 pl-5 ml-5 white--text text-center">
+                Inicia Sesión
+              </h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="resetForm">
@@ -25,25 +24,25 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                 <v-form ref="form" v-model="valid" lazy-validation>
-                <v-text-field
-                  label="Correo Electrónico"
-                  v-model="email"
-                  :rules="emailRules"
-                  outlined
-                  color="cfgray"
-                ></v-text-field>
-                <v-text-field
-                  label="Contraseña"
-                  v-model="password"
-                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                  :rules="passwordRules.required"
-                  :type="show1 ? 'text' : 'password'"
-                  outlined
-                  color="cfgray"
-                  @click:append="show1 = !show1"
-                ></v-text-field>
-                 </v-form>
+                <v-form ref="form" v-model="valid" lazy-validation>
+                  <v-text-field
+                    label="Correo Electrónico"
+                    v-model="email"
+                    :rules="[required]"
+                    outlined
+                    color="cfgray"
+                  ></v-text-field>
+                  <v-text-field
+                    label="Contraseña"
+                    v-model="password"
+                    :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="[required]"
+                    :type="show1 ? 'text' : 'password'"
+                    outlined
+                    color="cfgray"
+                    @click:append="show1 = !show1"
+                  ></v-text-field>
+                </v-form>
                 <v-btn block outlined color="cforange" @click="buttonLogin">
                   Entrar
                 </v-btn>
@@ -64,36 +63,33 @@ export default {
     valid: true,
     password: "",
     show1: false,
-    passwordRules: {
-      required: (v) => !!v || "Ingresa una contraseña correcta",
-    },
     email: "",
-    emailRules: [
-      (v) => !!v || "Ingresa un correo correcto",
-      (v) => /.+@.+\..+/.test(v) || "El correo ingresado no es valido",
-    ],
   }),
 
   methods: {
     buttonLogin() {
-      Firebase.auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((response) => {
-          this.$store.dispatch("defineCurrentUser", {
-            email: response.user.email,
+      if (this.$refs.form.validate()) {
+        Firebase.auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then((response) => {
+            this.$store.dispatch("defineCurrentUser", {
+              email: response.user.email,
+            });
+            this.$router.push("/fondo");
+            this.dialog = false;
+          })
+          .catch(() => {
+            this.$swal("Upss, correo o contraseña incorrectos");
           });
-           this.$router.push('/fondo')
-            this.dialog = false
-        })
-        .catch(() => {
-          this.$swal("Upss, correo o contraseña incorrectos");
-        });
+      }
     },
     resetForm() {
       this.dialog = false;
       this.$refs.form.reset();
     },
-    
+    required(value) {
+      return !!value || "Este campo es obligatorio";
+    },
   },
 };
 </script>
@@ -102,12 +98,12 @@ export default {
 .link {
   text-decoration: none;
 }
-.btn-session{
+.btn-session {
   border-radius: 0;
   color: #fff;
-  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
-  background: linear-gradient(to bottom right, #464b96, #FA7921);
+  background: -prefix-linear-gradient(left top, #464b96, #fa7921);
+  background: linear-gradient(to bottom right, #464b96, #fa7921);
   font-size: 12px;
-   margin-left: 20px;
+  margin-left: 20px;
 }
 </style>

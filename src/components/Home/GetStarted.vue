@@ -1,7 +1,7 @@
 <template>
     <div class="section-started">
         <v-container >
-            <h2 class="title-section text-h2 font-weight-bold pb-5 text-shadow">Es fácil iniciarse</h2>
+            <h2 class="title-section text-h2 font-weight-bold pb-5">Es fácil iniciarse</h2>
        
         <v-stepper v-model="e1">
             <v-stepper-header>
