@@ -79,7 +79,7 @@ export default {
       Firebase.auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((response) => {
-          this.$store.dispatch("session/defineCurrentUser", {
+          this.$store.dispatch("defineCurrentUser", {
             email: response.user.email,
           });
            this.$router.push('/fondo')

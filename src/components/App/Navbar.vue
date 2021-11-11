@@ -18,7 +18,7 @@ elevation="0"
         <router-link to="/fondo" class="btn graf">Fondos</router-link>
   
 
-        <template v-if="$store.state['session/currentUser']">
+        <template v-if="$store.state.currentUser">
           <SingOutLogin />
         </template>
         <template v-else>

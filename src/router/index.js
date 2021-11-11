@@ -47,7 +47,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   
   if (to.meta.requiredLogin) {
-    if (Store.state.session.currentUser) {
+    if (Store.state.currentUser) {
       next()
     } else {
       next('/')
