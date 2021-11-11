@@ -9,7 +9,7 @@
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text text-center">Inicia Sesión</h3>
+              <h3 class="pt-3 pl-5 ml-5 white--text text-center">Inicia Sesión</h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="resetForm">
