@@ -54,6 +54,7 @@
                   </v-row>
                 </v-card-text>
               </v-card>
+              <CriptoCalculator />
             </v-col>
             <v-col md="4" cols="12">
               <v-card >
@@ -120,10 +121,11 @@
 import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
 import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
 import SectionHero from "../components/SectionHero.vue";
+import CriptoCalculator from "../components/Fondo/CriptoCalculadora.vue";
 
 export default {
   name: "App",
-  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero },
+  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero, CriptoCalculator },
 };
 </script>
 

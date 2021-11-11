@@ -5,6 +5,7 @@
     max-width="344"
     outlined
   >
+  
        </v-card>
   </div>
 </template>
