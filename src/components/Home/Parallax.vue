@@ -21,17 +21,7 @@
     </v-card-text>
     <v-card-actions>
       
-      <v-btn
-              depressed
-              x-large
-              color="cforange"
-              class="white--text hero-btn"
-              @click.stop="$store.dispatch('toggleDrawer')"
-            >
-              REGÍSTRATE GRATIS
-              <v-icon>mdi-arrow-right</v-icon>
-              
-            </v-btn>
+      <RegistrationCard />
             
     </v-card-actions>
   </v-card>
@@ -47,6 +37,9 @@
 <script>
 export default {
     name: 'Parallax',
+    components: {
+      RegistrationCard: () => import("../Login/RegistrationCard.vue")
+    },
 
     data() {
         return {

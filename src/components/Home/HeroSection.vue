@@ -14,17 +14,8 @@
               Exchanges y Wallets ¿ Te gustaría administrar todas desde un mismo
               lugar ?
             </h3>
-            <v-btn
-              depressed
-              x-large
-              color="cforange"
-              class="white--text hero-btn"
-              @click.stop="$store.dispatch('toggleDrawer')"
-            >
-              REGÍSTRATE GRATIS
-              <v-icon>mdi-arrow-right</v-icon>
-              
-            </v-btn>
+           
+            <RegistratitonCard />
             </div>
           </v-col>
           <v-col cols="6" class="d-flex justify-center">
@@ -45,6 +36,9 @@
 <script>
 export default {
     name: 'Herosection',
+    components: {
+      RegistratitonCard: () => import("../Login/RegistrationCard.vue")
+    }
 };
 </script>
 
@@ -62,12 +56,5 @@ export default {
 .hero-text, .hero-img{
   margin-top: 110px;
 }
-.hero-btn{
-  margin-top: 20px;
-  border-radius: 0;
-  color: #fff;
-  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
-  background: linear-gradient(to bottom right, #464b96, #FA7921);
-  font-size: 12px;
-}
+
 </style>

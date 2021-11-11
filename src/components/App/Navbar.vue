@@ -16,7 +16,14 @@ elevation="0"
         <router-link to="/" class="btn about" >Inicio</router-link>
         <router-link to="/mercado" class="btn money">Mercado</router-link>
         <router-link to="/fondo" class="btn graf">Fondos</router-link>
-        <LoginCard /> 
+  
+
+        <template v-if="$store.state.currentUser">
+          <SingOutLogin />
+        </template>
+        <template v-else>
+          <LoginCard />
+        </template> 
 </v-app-bar>
 </template>
 
@@ -24,7 +31,7 @@ elevation="0"
 export default{
      components:{
         LoginCard: () => import("../Login/LoginCard.vue"),
-
+        SingOutLogin: () => import("../Login/SingOutLogin.vue")
     },
     computed: {
         links() {

@@ -50,11 +50,6 @@
                 <v-btn block outlined color="cforange" @click="buttonLogin">
                   Entrar
                 </v-btn>
-                <p class="text-center pt-5">
-                  No tienes cuenta?<a href="#" class="cforange--text link">
-                    Registrate aquí</a
-                  >
-                </p>
               </v-col>
             </v-row>
           </v-container>

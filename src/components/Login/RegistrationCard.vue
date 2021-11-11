@@ -1,16 +1,19 @@
 <template>
-  <v-row justify="center">
+  <v-row>
     <v-dialog v-model="dialog" persistent max-width="400px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">
-          Registrate
+         <v-btn v-bind="attrs" v-on="on" text depressed x-large
+            class="white--text hero-btn"
+          >
+            Regístrate
+          <v-icon>mdi-arrow-right</v-icon>
         </v-btn>
       </template>
       <v-card>
         <v-toolbar class="cforange" light>
           <v-row>
             <v-col cols="10">
-              <h3 class="pt-3 pl-5 white--text">Registrate</h3>
+              <h3 class="pt-3 pl-5 white--text text-center">Regístrate</h3>
             </v-col>
             <v-col cols="2">
               <v-btn icon @click="resetForm">
@@ -70,11 +73,7 @@
                 >
                   Registrarse
                 </v-btn>
-                <p class="text-center pt-5">
-                  Tienes cuenta?<a href="#" class="cforange--text link">
-                    Inicia Sesión aquí</a
-                  >
-                </p>
+                
               </v-col>
             </v-row>
           </v-container>
@@ -134,4 +133,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style >
+.hero-btn{
+  margin-top: 20px;
+  border-radius: 0;
+  color: #fff;
+  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
+  background: linear-gradient(to bottom right, #464b96, #FA7921);
+  font-size: 12px !important;
+}
+</style>
