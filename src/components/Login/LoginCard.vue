@@ -32,7 +32,6 @@
                   :rules="emailRules"
                   outlined
                   color="cfgray"
-                  required
                 ></v-text-field>
                 <v-text-field
                   label="Contraseña"
@@ -41,10 +40,8 @@
                   :rules="passwordRules.required"
                   :type="show1 ? 'text' : 'password'"
                   outlined
-                  modal="password"
                   color="cfgray"
                   @click:append="show1 = !show1"
-                  required
                 ></v-text-field>
                  </v-form>
                 <v-btn block outlined color="cforange" @click="buttonLogin">
@@ -82,7 +79,7 @@ export default {
       Firebase.auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((response) => {
-          this.$store.dispatch("defineCurrentUser", {
+          this.$store.dispatch("session/defineCurrentUser", {
             email: response.user.email,
           });
            this.$router.push('/fondo')

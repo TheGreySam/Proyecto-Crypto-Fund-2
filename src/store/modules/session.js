@@ -1,53 +1,66 @@
 import Firebase from "firebase";
+import Router from "../../router";
 
 export const sessionModule = {
-    namespaced: true,
-    state: {
-        user: null,
-    },
-    getters: {
-        isAdmin(state) {
-            return state.user.rol === "admin";
-        },
-        isUser(state) {
-            return state.user.rol === "user"
-        }
+  namespaced: true,
+  state: {
+    currentUser: null,
+  },
 
+  getters: {
+    isAdmin(state) {
+      return state.user.rol === "admin";
     },
-    mutation: {
-        SET_USER(state, newUser) {
-            state.user = newUser;
-        },
+    isUser(state) {
+      return state.user.rol === "user";
     },
-    actions: {
-        subscribeToAuthStateChange(context) {
-            Firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const user = await Firebase.firestore().collection("usuarios").get().then((documents) => {
-                        documents.forEach((document) => {
-                            const data = document.data();
-                            if (data.email === user.email) {
-                                console.log(data.rol)
-                                newUser.rol = data.rol;
-                            }
-                        });
-                        context.commit("SET_USER", { email: user.email } || null);
-                    });
-                    
-                } else {
-                    context.commit("SET_USER", { email: user.email } || null);
+  },
+
+  mutations: {
+    SET_CURRENT_USER(state, newUser) {
+      state.currentUser = newUser;
+    },
+    UNLOG_CURRENT_USER(state) {
+      state.currentUser = null;
+    },
+  },
+
+  actions: {
+    subscribeToAuthStateChange(context) {
+      Firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          Firebase.firestore()
+            .collection("usuarios")
+            .get()
+            .then((documents) => {
+              const newUser = {
+                email: user.email,
+                rol: "user",
+                name: "",
+                lastName: "",
+              };
+              documents.forEach((document) => {
+                const data = document.data();
+                if (data.email === user.email) {
+                  newUser.rol = data.rol;
+                  newUser.id = document.id;
+                  newUser.name = data.name;
+                  newUser.lastName = data.lastName;
                 }
-                context.commit("SET_USER", null);
+              });
+              context.commit("SET_USER", { ...newUser });
+              Router.push({ name: "Home" });
             });
-        },
-        async signIn(_context, credentials) {
-            await Firebase.auth().signInWithEmailAndPassword(
-                credentials.email,
-                credentials.password
-            );
-        },
-        async signOut() {
-            await Firebase.auth().signOut();
-        },
-    }
-}
+        } else {
+          context.commit("SET_USER", null);
+        }
+      });
+    },
+    defineCurrentUser(context, user) {
+      context.commit("SET_CURRENT_USER", user);
+    },
+    unlogCurrentUser(context, user) {
+      context.commit("UNLOG_CURRENT_USER", user);
+    },
+  },
+};

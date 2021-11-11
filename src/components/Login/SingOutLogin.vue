@@ -1,7 +1,7 @@
 <template>
     <div>
          <v-btn class="btn-out" @click="handleLogout" text depressed white--text>
-            {{ $store.state.currentUser ? $store.state.currentUser.email : "No existe" }}
+            {{ $store.state.session.currentUser ? $store.state.session.currentUser.email : "No existe" }}
             <v-icon right>mdi-logout</v-icon>
         </v-btn>
       
@@ -25,7 +25,7 @@ export default {
 
     methods: {
       async handleLogout() {
-      await this.$store.dispatch("unlogCurrentUser");
+      await this.$store.dispatch("session/unlogCurrentUser");
       this.$router.push('/');
     },
     },
