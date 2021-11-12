@@ -11,7 +11,7 @@
         class="px-5"
         placeholder="Buscar Moneda"
         background-color="grey darken-4"
-        color="grey darken-4"
+        color="white"
         @keyup="searchCoin()"
         v-model="textSearch"
       ></v-text-field>

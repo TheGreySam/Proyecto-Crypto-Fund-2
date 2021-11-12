@@ -24,7 +24,12 @@
         <v-col lg="3" sm="6" md="5" cols="12">
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-6 pb-3">
-              <p>Visits Today</p>
+           
+              <p v-if="this.$store.state.currentUser">Bienvenido {{this.$store.state.currentUser.fullName}}</p>
+              <p v-if="this.$store.state.currentUser">Tu Correo es: {{this.$store.state.currentUser.email}}</p>
+              
+              
+            
               <v-spacer></v-spacer>
               <v-menu>
                 <template>
@@ -142,6 +147,15 @@ import SectionHero from "../components/SectionHero.vue";
 export default {
   name: "App",
   components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero },
+  methods: {
+    userRolName(){
+      if (this.$store.getters.userRol == admin) {
+        return "Premium"
+      } else {
+        return "Basico"
+      }
+    }
+  }
   
 }
 </script>

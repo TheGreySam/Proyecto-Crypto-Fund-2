@@ -17,10 +17,12 @@ export default {
     Footer: () => import("./components/App/Footer.vue"),
   },
   mounted() {
-    this.$store.dispatch("criptoInfo/subscribe")
-  }
-
-  
+    // this.$store.dispatch("criptoInfo/subscribe")
+    this.$store.dispatch("subscribeToAuthStateChange");
+    // window.addEventListener("beforeunload", function(event) {
+    //              event.returnValue = "Estoy escribiendo algo aquí ...";
+    // });
+  },
 }
 </script>
 

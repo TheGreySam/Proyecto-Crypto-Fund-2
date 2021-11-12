@@ -42,10 +42,10 @@
 
                   <v-select
                     :items="[
-                      { text: 'Administrador', value: 'admin' },
-                      { text: 'Usuario', value: 'user' },
+                      { text: 'Premium', value: 'admin' },
+                      { text: 'Básica', value: 'user' },
                     ]"
-                    label="Tipo de Usuario"
+                    label="Selecciona tu suscripción"
                     v-model="rol"
                     :rules="[required]"
                     color="cfgray"

@@ -12,20 +12,9 @@
 <script>
 export default {
     name: 'Singoutlogin',
-
-    data() {
-        return {
-            
-        };
-    },
-
-    mounted() {
-        
-    },
-
     methods: {
       async handleLogout() {
-      await this.$store.dispatch("unlogCurrentUser");
+      await this.$store.dispatch("signOut");
       this.$router.push('/');
     },
     },
