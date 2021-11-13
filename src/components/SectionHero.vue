@@ -7,7 +7,7 @@
             <div class="hero-text">
             <h2 class="text-h2 font-weight-bold">. . .</h2>
             <h2 class="text-h2 font-weight-bold pb-5">
-              CRYTO FUND
+              CRYPTO FUND
             </h2>
             <h3 class="text-h5 font-weight-regular pb-5">
               {{ msg }}

@@ -7,7 +7,7 @@
             <div class="hero-text">
             <h1 class="text-h1 text-left font-weight-bold">. . .</h1>
             <h1 class="text-h1 text-left  font-weight-bold pb-5">
-              CRYTO FUND
+              CRYPTO FUND
             </h1>
             <h3 class="text-h5 text-left  font-weight-regular pb-5">
               Tus inversiones de criptomonedas suelen estar repartidas en varios

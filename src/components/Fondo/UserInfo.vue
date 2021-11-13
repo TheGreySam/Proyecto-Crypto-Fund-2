@@ -29,20 +29,7 @@
                   asd
                 </v-col>
               </v-row>
-              <v-row no-gutters class="justify-space-between pb-3">
-                <v-col cols="5">
-                  <div>Registrations</div>
-                  <div>860</div>
-                </v-col>
-                <v-col cols="3">
-                  <div>Sign Out</div>
-                  <div>32</div>
-                </v-col>
-                <v-col cols="4" xl="2">
-                  <div>Rate</div>
-                  <div>3.25%</div>
-                </v-col>
-              </v-row>
+             
             </v-card-text>
           </v-card>
       

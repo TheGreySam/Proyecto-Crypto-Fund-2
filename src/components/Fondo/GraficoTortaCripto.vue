@@ -4,6 +4,10 @@
       <v-row dense>
         <v-col>
           <v-card max-width="500" outlined elevation="2" class="pa-5">
+            <v-card-title class="pa-6 pb-3">
+              <p>Criptomonedas Agrupadas</p>
+              <v-spacer></v-spacer>
+            </v-card-title>
             <div class="Chart">
               <DoughnutExample
                 elevation="2"
@@ -65,6 +69,7 @@
                           </v-col>
                           <v-col cols="8" sm="2">
                             <input
+                            class="demo"
                               type="text"
                               :value="chartData.labels[i]"
                               @input="updateName($event.target.value, i)"
@@ -82,6 +87,7 @@
                               outlined
                             ></v-select>
                           </v-col>
+                          <v-col> </v-col>
 
                           <v-col cols="2" sm="2">
                             <v-btn
