@@ -2,9 +2,10 @@
   
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-6 pb-3">
-              <p> {{ $store.state.currentUser ? $store.state.currentUser.email : "No existe" }}</p>
-              <v-spacer></v-spacer>
-              <p> {{ $store.state.currentUser ? $store.state.currentUser.fullName : "No existe" }}</p>
+               <p v-if="this.$store.state.currentUser">Bienvenido {{this.$store.state.currentUser.fullName}}</p>
+              <p v-if="this.$store.state.currentUser">Tu Correo es: {{this.$store.state.currentUser.email}}</p>
+              
+              
               <v-menu>
                 <template>
                   <v-btn>

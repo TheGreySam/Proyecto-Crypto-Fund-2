@@ -2,7 +2,7 @@
   <div id="app">
     <SectionHero msg="Fondos" />
     <v-container>
-      <v-card >
+      <v-card class="d-flex align-center" >
         <v-app-bar
        class="mx-auto"
         color="cfdarkblue"
@@ -23,7 +23,9 @@
         <v-app-bar-nav-icon>
             <img src="cryptoFundLogo3d.png" width="55" alt="">
         </v-app-bar-nav-icon>
-        <v-toolbar-title>Billetera 1</v-toolbar-title>
+        <p v-if="this.$store.state.currentUser">Billetera {{this.$store.state.currentUser.fullName}} 1</p>
+    
+        
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
@@ -37,7 +39,7 @@
       <v-card class="mx-auto">
         <div>
           <v-row>
-            <v-col sm="6" md="5" cols="12">
+            <v-col sm="6" md="6" cols="12">
               <UserInfo />
               <Porcentaje />
               <Currency />

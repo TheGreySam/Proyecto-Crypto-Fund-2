@@ -1,40 +1,40 @@
 <template>
-  <v-app>
-    <v-container>
-      <v-row>
-        <v-col cols="10" md="12" lg="9" xl="6" class="bg--light mx-auto">
-          <h1 class="text-center mb-4">Currency Converter</h1>
+      <v-card class="mx-1 mb-1">
+ 
+     
+        
+          <h3 class="text-center mb-4 pt-3">Ingresa tus Criptomonedas</h3>
           <v-row justify="space-between" no-gutters>
             <v-col cols="12" md="5">
               <v-row no-gutters>
-                <v-col class="px-1" cols="3">
+                <v-col class="px-1" cols="4">
                   <v-select @change="convert" v-model="selected[0]" :items="countries" label="I have"></v-select>
                 </v-col>
 
-                <v-col class="px-1" cols="9">
+                <v-col class="px-1" cols="4">
                   <v-text-field @input="convert" v-model="inputed" :rules="[rules.onlyNumbers]"></v-text-field>
                 </v-col>
               </v-row>
             </v-col>
-
-           
-
+          <v-col cols="2" offset="5" offset-md="0" class="d-flex justify-center align-center">
+              <p>equivale a</p>
+            </v-col>
             <v-col cols="12" md="5">
               <v-row no-gutters>
-                <v-col class="px-1" cols="9">
-                  <v-text-field v-model="result" type="number" readonly></v-text-field>
+                 <v-col class="px-1" cols="4">
+                  <v-select @change="convert" v-model="selected[1]" :items="countries" label="I want to buy"></v-select>
                 </v-col>
 
-                <v-col class="px-1" cols="3">
-                  <v-select @change="convert" v-model="selected[1]" :items="countries" label="I want to buy"></v-select>
+                <v-col class="px-1" cols="4">
+                  <v-text-field v-model="result" type="number" readonly></v-text-field>
                 </v-col>
               </v-row>
             </v-col>
+            
           </v-row>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-app>
+        
+      
+  </v-card>
 </template>
 
 <script>
@@ -109,7 +109,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
@@ -131,16 +131,16 @@ export default {
   }
 }
 
-h1, h2, h3 {
-  font-family: 'Indie Flower';
-}
+//h1, h2, h3 {
+//  font-family: 'Indie Flower';
+//}
 
 .bg--light {
   background: #fcfcfc;
 }
 
-.exchange {
-  max-width: 50px;
-}
+//.exchange {
+//  max-width: 50px;
+//}
 
 </style>
