@@ -5,7 +5,7 @@ elevation="0"
 >
   <v-app-bar-nav-icon>
     <router-link to="/" class="logo"
-          ><img src="../../assets/cryptoFundLogo3d.png" width="55" alt="logo"
+          ><img src="cryptoFundLogo3d.png" width="55" alt=""
         /></router-link>
   </v-app-bar-nav-icon>
     <v-toolbar-title class="text-shadow">Crypto Fund</v-toolbar-title>

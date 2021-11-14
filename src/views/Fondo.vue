@@ -1,139 +1,55 @@
 <template>
   <div id="app">
-     <SectionHero msg="Fondos"/>
+    <SectionHero msg="Fondos" />
     <v-container>
-      <v-card class="mx-auto">
-      <v-toolbar color="cfdarkblue" dark>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-        <v-toolbar-title>Tu fondo 1</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-      </v-toolbar>
-
-      <div>
-      <v-row>
-        
-        <v-menu offset-y>
-          <template>
-            <v-btn>Latest Reports</v-btn>
-          </template>
-        </v-menu>
-      </v-row>
-      <v-row>
-        <v-col lg="3" sm="6" md="5" cols="12">
-          <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-6 pb-3">
-           
-              <p v-if="this.$store.state.currentUser">Bienvenido {{this.$store.state.currentUser.fullName}}</p>
-              <p v-if="this.$store.state.currentUser">Tu Correo es: {{this.$store.state.currentUser.email}}</p>
-              
-              
-            
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template>
-                  <v-btn>
-                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item>Item
-                    <v-list-item-title>Titulo</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-card-text class="pa-6 pt-0">
-              <v-row no-gutters class="pb-5">
-                <v-col cols="5">
-                  <span
-                   style="font-size: 24px">
-                   12, 678</span>
-                </v-col>
-                <v-col cols="6">
-                  asd
-                </v-col>
-              </v-row>
-              <v-row no-gutters class="justify-space-between pb-3">
-                <v-col cols="5">
-                  <div>Registrations</div>
-                  <div>860</div>
-                </v-col>
-                <v-col cols="3">
-                  <div>Sign Out</div>
-                  <div>32</div>
-                </v-col>
-                <v-col cols="4" xl="2">
-                  <div>Rate</div>
-                  <div>3.25%</div>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col lg="3" sm="6" md="7" cols="12">
-          <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-6 pb-3">
-              <p>Criptomonedas Agrupadas</p>
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template>
-                  <v-btn>
-                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
-                  </v-btn>
-
-                </template>
-                <v-list>
-                  <v-list-item>
-                    <v-list-title> item</v-list-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-card-text class="pa-6 pt-0">
-              <v-row no-gutters class="pb-5">
-                <v-col>
-                  <GraficoTortaCripto />
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col lg="3" sm="6" md="7" cols="12">
-          <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-6 pb-3">
-              <p>Porcentaje participantes</p>
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template>
-                  <v-btn>
-                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
-                  </v-btn>
-
-                </template>
-                <v-list>
-                  <v-list-item>
-                    <v-list-title> item</v-list-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-card-text class="pa-6 pt-0">
-              <v-row no-gutters class="pb-5">
-                <v-col>
-                  <GraficoTortaPorcentaje />
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </div>
-    </v-card>
-   
-    </v-container>
+      <v-card >
+        <v-app-bar
+       class="mx-auto"
+        color="cfdarkblue"
+        dark
     
+        prominent
+        src="../assets/bitcoin-img.jpeg"
+      fade-img-on-scroll
+        elevate-on-scroll
+        scroll-target="#scrolling-techniques-7"
+        >
+        <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+        ></v-img>
+      </template>
+        <v-app-bar-nav-icon>
+            <img src="cryptoFundLogo3d.png" width="55" alt="">
+        </v-app-bar-nav-icon>
+        <v-toolbar-title>Billetera 1</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-avatar size="100" class="p-2" tile>
+              <v-img src="wallet.png"></v-img>
+            </v-avatar>
+      </v-app-bar>
+      </v-card>
+      
+      <v-card class="mx-auto">
+        <div>
+          <v-row>
+            <v-col sm="6" md="5" cols="12">
+              <UserInfo />
+              <Porcentaje />
+              <Currency />
+            </v-col>
+
+            <v-col>
+              <GraficoTortaCripto />
+            </v-col>
+          </v-row>
+        </div>
+      </v-card>
+    </v-container>
   </div>
 </template>
 
@@ -142,24 +58,22 @@
 import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
 import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
 import SectionHero from "../components/SectionHero.vue";
-
+import UserInfo from "@/components/Fondo/UserInfo";
+import Porcentaje from "@/components/Fondo/Porcentaje";
+import Currency from "@/components/Fondo/Currency";
 
 export default {
   name: "App",
-  components: { GraficoTortaCripto, GraficoTortaPorcentaje, SectionHero },
-  methods: {
-    userRolName(){
-      if (this.$store.getters.userRol == admin) {
-        return "Premium"
-      } else {
-        return "Basico"
-      }
-    }
-  }
-  
-}
+  components: {
+    GraficoTortaCripto,
+    GraficoTortaPorcentaje,
+    SectionHero,
+    UserInfo,
+    Porcentaje,
+    Currency
+  },
+};
 </script>
 
 <style>
-
 </style>

@@ -2,7 +2,7 @@
   <v-container >
     <div class="mb-10">
       <div class="section-title">
-      <h2 class="title-section text-h2 font-weight-bold pb-5 text-shadow">Inivierte en los activos más populares del mundo</h2>
+      <h2 class="title-section text-h2 font-weight-bold pb-5 text-shadow">Invierte en los activos más populares del mundo</h2>
       <v-icon class="t">mdi-arrow-down</v-icon>
       </div>
 

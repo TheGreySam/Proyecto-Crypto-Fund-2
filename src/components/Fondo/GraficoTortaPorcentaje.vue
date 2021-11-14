@@ -29,6 +29,7 @@
                       <v-row no-gutters>
                         <v-col cols="12" sm="6" md="8">
                           <input
+                            
                             type="range"
                             min="0"
                             max="100"
@@ -36,6 +37,7 @@
                             :value="currentDataSet[i]"
                             @input="updateAmount($event.target.value, i)"
                           />
+                          
                           <h3>{{ currentDataSet[i] }} %</h3>
                           <input
                             type="text"

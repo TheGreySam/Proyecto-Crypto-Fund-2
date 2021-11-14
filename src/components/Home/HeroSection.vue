@@ -1,6 +1,7 @@
 <template>
     <div>
         <section class="hero-section pb-5">
+          <v-parallax dark src="../../assets/fondo3.jpg" height="600">
          <v-container>
         <v-row>
           <v-col cols="6">
@@ -29,6 +30,7 @@
           </v-col>
         </v-row>
          </v-container>
+          </v-parallax>
       </section>
     </div>
 </template>
@@ -47,14 +49,14 @@ export default {
     position: relative;
     color: #fff;
     background-color: #000;
-    background-image: url("../../assets/fondo3.jpg");
+  //  background-image: url("../../assets/fondo3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 700px;
+    height: 600px;
 }
 .hero-text, .hero-img{
-  margin-top: 110px;
+  margin-top: 10px;
 }
 .text-shadow {
   text-shadow: 0px 3px #000000;
