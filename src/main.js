@@ -11,7 +11,11 @@ import vuetify from "./plugins/vuetify";
 import Chartkick from 'vue-chartkick';
 import Chart from 'chart.js';
 
-Vue.use(Chartkick.use(Chart))
+//import VueCurrencyInput from "vue-currency-input";
+
+Vue.use(Chartkick.use(Chart));
+
+
 
 Vue.config.productionTip = false;
 
