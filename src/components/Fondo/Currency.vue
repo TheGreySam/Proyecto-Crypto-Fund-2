@@ -10,7 +10,10 @@
         item-value="current_price"
         label="I have"
       ></v-select>
-       <v-select
+       
+      <v-text-field @input="convert" v-model="inputed"></v-text-field>
+
+      <v-select
         @change="convert"
         v-model="selected[1]"
         :items="coins"
@@ -18,7 +21,6 @@
         item-value="current_price"
         label="I have"
       ></v-select>
-      <v-text-field @input="convert" v-model="inputed"></v-text-field>
 
       <h1> Tienes {{ this.result }} </h1>
     </v-container>

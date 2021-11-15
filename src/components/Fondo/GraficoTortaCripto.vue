@@ -5,8 +5,7 @@
         <v-col>
           <v-card max-width="500" outlined elevation="2" class="pa-5">
             <v-card-title class="pa-6 pb-3">
-              <p>Criptomonedas Agrupadas</p>
-              <v-spacer></v-spacer>
+              <h1 class="text-h5">Criptomonedas Agrupadas</h1>
             </v-card-title>
             <div class="Chart">
               <DoughnutExample
@@ -20,55 +19,21 @@
                 <v-flex>
                   <div v-for="(val, i) in currentDataSet" :key="i">
                     <v-row no-gutters>
-                      <!--v-card-text>
-                        <v-row>
-                          <v-col class="pr-4">
-                            <v-slider
-                              v-model="slider"
-                              class="align-center"
-                              :max="100"
-                              :min="0"
-                              hide-details
-                              @input="updateAmount($event.target.value, i)"
-                            >
-                              <p>{{ currentDataSet[i] }} %</p>
-                              <template v-slot:append>
-                                <v-text-field
-                                  v-model="slider"
-                                  class="mt-0 pt-0"
-                                  hide-details
-                                  single-line
-                                  type="number"
-                                  style="width: 60px"
-                                ></v-text-field>
-                                <v-col class="d-flex" cols="12" sm="6">
-                                  <v-select
-                                    :items="coins"
-                                    label="Outlined style"
-                                    dense
-                                    outlined
-                                  ></v-select>
-                                </v-col>
-                              </template>
-                            </v-slider>
-                          </v-col>
-                        </v-row>
-                      </v-card-text-->
                       <v-card-text class="pa-5">
                         <v-row>
                           <v-col cols="12" sm="6">
-                            <input
+                            <!-- <input
                               type="range"
                               min="0"
                               max="100"
                               placeholder="coin"
                               :value="currentDataSet[i]"
                               @input="updateAmount($event.target.value, i)"
-                            />
+                            /> -->
                           </v-col>
                           <v-col cols="8" sm="2">
                             <input
-                            class="demo"
+                              class="demo"
                               type="text"
                               :value="chartData.labels[i]"
                               @input="updateName($event.target.value, i)"
@@ -166,7 +131,6 @@ export default {
     );
     const data = await res.json();
     (this.coins = data), console.log(data);
-    (this.filteredCoins = data), console.log(data);
   },
 
   methods: {

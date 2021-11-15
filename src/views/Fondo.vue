@@ -43,7 +43,7 @@
             </v-col>
 
             <v-col md="6" cols="12">
-              <GraficoTortaCripto />
+              <GraficoTortaCripto class="px-5 py-5"/>
             </v-col>
           </v-row>
         </div>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
+import GraficoTortaCripto from "@/components/Fondo/GraficoCripto";
 import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
 import SectionHero from "../components/SectionHero.vue";
 import UserInfo from "@/components/Fondo/UserInfo";
