@@ -5,15 +5,15 @@ elevation="0"
 >
   <v-app-bar-nav-icon>
     <router-link to="/" class="logo"
-          ><img src="cryptoFundLogo3d.png" width="55" alt=""
+          ><img src="cryptoFundLogo3d.png" width="55" alt="logo"
         /></router-link>
   </v-app-bar-nav-icon>
-    <v-toolbar-title class="text-shadow">Crypto Fund</v-toolbar-title>
+    <v-toolbar-title class="text-shadow hidden-xs-and-down title-page">Crypto Fund</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
-        <router-link to="/" class="btn about text-shadow" >Inicio</router-link>
+        <router-link to="/" class="btn home text-shadow">Inicio</router-link>
         <router-link to="/mercado" class="btn money text-shadow">Mercado</router-link>
         <router-link to="/fondo" class="btn graf text-shadow" v-show="$store.state.currentUser">Fondos</router-link>
   
@@ -55,11 +55,18 @@ export default{
 .btn:hover{
     opacity: 0.60;
 }
-.about, .money, .graf{
+.home, .money, .graf{
   margin-right: 15px;
+}
+.home, .title-page{
+  display: none;
 }
 .text-shadow {
   text-shadow: 0px 3px #000000;
 }
-
+@media screen and (min-width: 768px){
+  .home, .title-page{
+  display: block;
+}
+}
 </style>

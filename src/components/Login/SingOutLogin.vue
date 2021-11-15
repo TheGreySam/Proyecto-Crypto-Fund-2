@@ -24,6 +24,7 @@ export default {
 <style lang="scss" scoped>
 .btn-out{
     color: #fff;
+    font-size: 12px;
 }
 .text-shadow {
   text-shadow: 0px 3px #000000;

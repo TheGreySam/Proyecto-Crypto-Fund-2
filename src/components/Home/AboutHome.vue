@@ -3,23 +3,21 @@
     <section class="about-section">
       <v-container>
         <v-row>
-          <v-col cols="7" class="d-flex justify-center">
+          <v-col cols="12" md="6" lg="7" class="d-flex justify-center">
             <div class="hero-img">
               <img
-                class="img-about1"
+                class="img-about1 mx-auto"
                 src="../../assets/about1.png"
-                width="400"
                 alt="logo"
               />
               <img
-                class="img-about2"
+                class="img-about2 mx-auto hidden-sm-and-down"
                 src="../../assets/about2.png"
-                width="400px"
                 alt="logo"
               />
             </div>
           </v-col>
-          <v-col cols="5">
+          <v-col cols="12" md="6" lg="5">
             <div class="about-text">
               <h2 class="text-h2 font-weight-bold pb-5 about-title">
                 Sobre Nosotros
@@ -53,21 +51,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-section {
-  margin-top: 100px;
-}
 .img-about1 {
-  position: relative;
+  width: 100%;
 }
 .img-about2 {
-  position: relative;
-  bottom: 200px;
-  left: 100px;
-}
-.about-text {
-  margin-top: 100px;
+  width: 100%;
 }
 .about-title {
+  text-align: center;
   color: #252850;
+}
+@media screen and (min-width: 1024px){
+ .about-section {
+   margin-top: 100px;
+ }
+ .img-about1 {
+  position: relative;
+  width: 400px
+  }
+  .img-about2 {
+  position: relative;
+     bottom: 95px;
+    left: 41px;
+    width: 400px;
+  }
+  .about-text {
+  margin-top: 100px;
+ }
+ .about-title {
+  text-align: left;
+}
+}
+@media screen and (min-width: 1366px){
+  .img-about2 {
+    position: relative;
+     bottom: 100px;
+    left: 160px;
+    width: 400px;
+  } 
+  
 }
 </style>

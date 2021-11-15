@@ -3,28 +3,28 @@
         <section>
       <v-parallax dark src="../../assets/bitcoin-img.jpeg" height="600">
         <v-row >
-          <v-col class="text-left" cols="6">
+          <v-col class="text-left" cols="12" md="6" lg="6">
         
-              <v-card
-    class="mx-auto card-parallax"
-    max-width="450"
-  >
-    <v-card-text>
-      <div>Crypto Fund</div>
-      <p class="text-h4  title-card">
-        Suscríbete para estar actualizado 
-      </p>
-     
-      <div class="text--primary">
-        Crea una cuenta para comenzar a utilizar la plataforma.
-      </div>
-    </v-card-text>
-    <v-card-actions>
-      
-      <RegistrationCard />
-            
-    </v-card-actions>
-  </v-card>
+          <v-card
+          class="mx-auto card-parallax"
+         
+        >
+          <v-card-text>
+            <div>Crypto Fund</div>
+            <p class="text-h4  title-card">
+              Suscríbete para estar actualizado 
+            </p>
+          
+            <div class="text--primary">
+              Crea una cuenta para comenzar a utilizar la plataforma.
+            </div>
+          </v-card-text>
+            <v-card-actions class="btn-card">
+        
+              <RegistrationCard />
+                    
+            </v-card-actions>
+          </v-card>
             
           </v-col>
         </v-row>
@@ -40,20 +40,6 @@ export default {
     components: {
       RegistrationCard: () => import("../Login/RegistrationCard.vue")
     },
-
-    data() {
-        return {
-            
-        };
-    },
-
-    mounted() {
-        
-    },
-
-    methods: {
-        
-    },
 };
 </script>
 
@@ -62,15 +48,15 @@ export default {
  color: #252850;
 }
 .card-parallax{
+ max-width: 450px;
+ padding: 30px;
+ margin-top: 50px;
+}
+@media screen and (min-width: 1366px){
+.card-parallax{
     margin-top: 85px;
     padding: 30px;
 }
-.hero-btn{
-  margin-top: 20px;
-  border-radius: 0;
-  color: #fff;
-  background: -prefix-linear-gradient(left top, #464b96, #FA7921);
-  background: linear-gradient(to bottom right, #464b96, #FA7921);
-  font-size: 12px;
 }
+
 </style>

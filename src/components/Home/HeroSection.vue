@@ -4,13 +4,13 @@
           <v-parallax dark src="../../assets/fondo3.jpg" height="600">
          <v-container>
         <v-row>
-          <v-col cols="6">
+          <v-col cols="12" md="6" lg="6">
             <div class="hero-text">
-            <h1 class="text-h1 text-left text-shadow font-weight-bold">. . .</h1>
-            <h1 class="text-h1 text-left text-shadow font-weight-bold pb-5">
+            <h1 class=" text-left text-title font-weight-bold">. . .</h1>
+            <h1 class=" text-left text-title font-weight-bold pb-5">
               CRYPTO FUND
             </h1>
-            <h3 class="text-h5 text-left text-shadow font-weight-regular pb-5">
+            <h3 class=" text-left text-subtitle font-weight-regular pb-5">
               Tus inversiones de criptomonedas suelen estar repartidas en varios
               Exchanges y Wallets ¿ Te gustaría administrar todas desde un mismo
               lugar ?
@@ -19,11 +19,11 @@
             <RegistratitonCard />
             </div>
           </v-col>
-          <v-col cols="6" class="d-flex justify-center">
+          <v-col cols="12" md="6" lg="6" class="d-flex justify-center ">
             <div class="hero-img">
             <img
+            class="hidden-sm-and-down hero-logo"
               src="../../assets/cryptoFundLogo3d.png"
-              width="500"
               alt="logo"
             />
             </div>
@@ -45,11 +45,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero-section{
+
+
+ .text-title, .text-subtitle {
+   text-shadow: 0px 3px #000000;
+ }
+ .text-title{
+   font-size: 3rem;
+ }
+ .text-subtitle{
+   font-size: 22px;
+ }
+@media screen and (min-width: 1024px){
+  .hero-logo{
+    width: 400px;
+  } 
+  .text-title{
+   font-size: 3.75rem;
+ }
+}
+@media screen and (min-width: 1366px){
+  .text-title{
+   font-size: 4.75rem;
+ } 
+ .hero-section{
     position: relative;
     color: #fff;
     background-color: #000;
-  //  background-image: url("../../assets/fondo3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,8 +80,7 @@ export default {
 .hero-text, .hero-img{
   margin-top: 10px;
 }
-.text-shadow {
-  text-shadow: 0px 3px #000000;
 }
+
 
 </style>

@@ -14,19 +14,19 @@
     <v-card-text class="cfdarkblue" white--text>
         <div class="footer my-4 text-center">
         <v-row>
-            <v-col cols="12" md="4" lg="4">
+            <v-col cols="12" sm="4" md="4" lg="4">
                 <div class="px-8">
                     <img class="img-footer" src="../../assets/bit.webp" width="120" height="120" alt="imgen">
                     <p>Como empresa permitimos visualizar información sobre los valores de las criptomonedas en tiempo real.</p>
                 </div>
             </v-col>
-            <v-col cols="12" md="4" lg="4">
+            <v-col cols="12" sm="4" md="4" lg="4">
                 <div class="px-8">
                     <img class="img-footer" src="../../assets/cryptoFundLogo3d.png" width="120" height="120"  alt="imgen">
-                    <p>Crypto Fund, permitir realizar distintas operaciones con los datos proporcionados por el usuario.</p>
+                    <p>Crypto Fund, permite realizar distintas operaciones con los datos proporcionados por el usuario.</p>
                 </div>
             </v-col>
-            <v-col cols="12" md="4" lg="4">
+            <v-col cols="12" sm="4" md="4" lg="4">
                 <div class="px-8">
                     <img class="img-footer" src="../../assets/cripto.jpeg" width="120" height="120" alt="imgen">
                     <p>Crypto Fund, es una plataforma donde actuarás como tu propio administrador de inversiones del mundo Crypto.</p>
