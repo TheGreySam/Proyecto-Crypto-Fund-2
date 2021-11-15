@@ -1,23 +1,17 @@
 <template>
   
           <v-card class="mx-1 mb-1 mt-5">
-            <v-card-title class="pa-6 pb-3">
+            <v-card-title class="pa-6 pb-2">
                <p v-if="this.$store.state.currentUser">Bienvenido {{this.$store.state.currentUser.fullName}}</p>
+          
+            </v-card-title>
+            <v-card-title class="pa-6 pb-2">
+           
               <p v-if="this.$store.state.currentUser">Tu Correo es: {{this.$store.state.currentUser.email}}</p>
-              
-              
-              <v-menu>
-                <template>
-                  <v-btn>
-                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item>Item
-                    <v-list-item-title>Titulo</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+            </v-card-title>
+             <v-card-title class="pa-6 pb-2">
+           
+              <p v-if="this.$store.state.currentUser">Plan {{this.$store.state.currentUser.rol}}</p>
             </v-card-title>
             <v-card-text class="pa-6 pt-0">
               <v-row no-gutters class="pb-5">

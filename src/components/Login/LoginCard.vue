@@ -6,7 +6,13 @@
     </v-btn>
     <v-dialog v-model="dialog" persistent max-width="400px">
       <v-card>
-        <v-toolbar class="cforange" light>
+        <v-toolbar prominent light src="@/assets/bitcoin-img.jpeg">
+          <template v-slot:img="{ props }">
+            <v-img
+              v-bind="props"
+              gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+            ></v-img>
+          </template>
           <v-row>
             <v-col cols="10">
               <h3 class="pt-3 pl-5 ml-5 white--text text-center">
@@ -43,7 +49,7 @@
                     @click:append="show1 = !show1"
                   ></v-text-field>
                 </v-form>
-                <v-btn block outlined color="cforange" @click="buttonLogin">
+                <v-btn block outlined color="cfdarkblue" @click="buttonLogin">
                   Entrar
                 </v-btn>
               </v-col>

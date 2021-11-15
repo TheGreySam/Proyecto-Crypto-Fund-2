@@ -15,7 +15,13 @@
         </v-btn>
       </template>
       <v-card>
-        <v-toolbar class="cforange" light>
+        <v-toolbar prominent light src="@/assets/bitcoin-img.jpeg">
+        <template v-slot:img="{ props }">
+            <v-img
+              v-bind="props"
+              gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+            ></v-img>
+          </template>
           <v-row>
             <v-col cols="10">
               <h3 class="pt-3 pl-5 ml-5 white--text text-center">Regístrate</h3>
@@ -42,8 +48,8 @@
 
                   <v-select
                     :items="[
-                      { text: 'Premium', value: 'admin' },
-                      { text: 'Básica', value: 'user' },
+                      { text: 'Premium', value: 'PREMIUM' },
+                      { text: 'Básica', value: 'BASICA' },
                     ]"
                     label="Selecciona tu suscripción"
                     v-model="rol"
@@ -81,7 +87,7 @@
                   <v-btn
                     block
                     outlined
-                    color="cforange"
+                    color="cfdarkblue"
                     @click="buttonRegistration"
                   >
                     Registrarse
