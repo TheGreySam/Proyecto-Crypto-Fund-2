@@ -43,7 +43,7 @@
             </v-col>
 
             <v-col md="6" cols="12">
-              <GraficoTortaCripto class="px-5 py-5"/>
+              <AddCoins class="px-5 py-5"/>
             </v-col>
           </v-row>
         </div>
@@ -53,8 +53,8 @@
 </template>
 
 <script>
-import GraficoTortaCripto from "@/components/Fondo/GraficoCripto";
-import GraficoTortaPorcentaje from "@/components/Fondo/GraficoTortaPorcentaje";
+import AddCoins from "@/components/Fondo/AddCoins"
+import GraficoCripto from "@/components/Fondo/GraficoCripto";
 import SectionHero from "../components/SectionHero.vue";
 import UserInfo from "@/components/Fondo/UserInfo";
 import Porcentaje from "@/components/Fondo/Porcentaje";
@@ -63,8 +63,8 @@ import Currency from "@/components/Fondo/Currency";
 export default {
   name: "App",
   components: {
-    GraficoTortaCripto,
-    GraficoTortaPorcentaje,
+    GraficoCripto,
+    AddCoins,
     SectionHero,
     UserInfo,
     Porcentaje,

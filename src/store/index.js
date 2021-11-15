@@ -48,6 +48,7 @@ export default new Vuex.Store({
                   newUser.rol = data.rol;
                   newUser.id = document.id;
                   newUser.fullName = data.fullName;
+                  newUser.walletOne = data.walletOne;
                 }
               });
               context.commit("SET_USER", { ...newUser });
