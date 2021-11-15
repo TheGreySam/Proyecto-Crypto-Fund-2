@@ -1,9 +1,10 @@
 <template >
+<div class="card-cript">
   <v-container >
     <div class="mb-10">
       <div class="section-title">
       <h2 class="title-section text-h2 font-weight-bold pb-5 text-shadow">Invierte en los activos más populares del mundo</h2>
-      <v-icon class="t">mdi-arrow-down</v-icon>
+      <v-icon class="text-white">mdi-arrow-down</v-icon>
       </div>
 
        <v-row>
@@ -14,6 +15,7 @@
   
     </div>
   </v-container>
+  </div>
 </template>
 
 <script>
@@ -31,7 +33,14 @@ export default {
 <style scoped>
 .section-title{
   text-align: center;
-  color: #252850;
+  color: #fff;
   margin-bottom: 40px;
+}
+.text-white{
+  color: #fff;
+}
+.card-cript{
+  background-image: url("../../assets/footer.jpeg");
+  background-position: center;
 }
 </style>

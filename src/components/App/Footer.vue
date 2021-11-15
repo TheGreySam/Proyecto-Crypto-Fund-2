@@ -10,8 +10,9 @@
       flat
       tile
     >
-    
-    <v-card-text class="cfdarkblue" white--text>
+     
+    <v-card-text class="footer-fondo" white--text>
+     
         <div class="footer my-4 text-center">
         <v-row>
             <v-col cols="12" sm="4" md="4" lg="4">
@@ -33,8 +34,10 @@
                 </div>
             </v-col>
         </v-row>
-        </div>      
+        </div>  
+         
     </v-card-text>
+     
       <v-card-text class="py-2 white--text text-center">
        <v-btn
           v-for="icon in icons"
@@ -52,6 +55,7 @@
         {{ new Date().getFullYear() }} — <strong>Copyright Crypto Fund</strong>
       </v-card-text>
     </v-card>
+
   </v-footer>
 </div>
 </template>
@@ -68,6 +72,12 @@
   }
 </script>
 <style scoped>
+.footer{
+  color: #fff;
+}
+.footer-fondo{
+  background-image: url("../../assets/fondow.jpeg");
+}
 .img-footer{
     border-radius: 50%;
 }
