@@ -6,13 +6,13 @@
         :items="coins"
         item-text="name"
         item-value="name"
-        label="I have"
+        label="Añade tu moneda"
       ></v-select>
 
       <v-text-field
         type="number"
         v-model.number="selected.valueCoin"
-        label="Cupos del Curso"
+        label="Cantidad"
         required
       ></v-text-field>
       <h1>{{ this.id }}</h1>
