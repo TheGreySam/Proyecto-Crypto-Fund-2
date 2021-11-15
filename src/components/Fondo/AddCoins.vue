@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card class="mx-1 mb-1">
       <v-select
         v-model="selected.nameCoin"
         :items="coins"
@@ -53,6 +53,36 @@ export default {
       });
     },
   },
+  
+actions: {
+    //Agregar juguetes a firestore
+    addToy(state, juguete) {
+      const { Código, Nombre, Stock, Precio } = juguete
+      if (Código.length > 1 && Nombre.length > 1 && Stock.length > 1 && Precio.length > 2) {
+        juguete.Precio = Number(juguete.Precio);
+        juguete.Stock = Number(juguete.Stock);
+        firebase
+          .firestore()
+          .collection("juguetes")
+          .add(juguete);
+      }
+      else {
+        let errores = ""
+        if (juguete.Código == "") {
+          errores = errores + "Código, "
+        }
+        if (juguete.Nombre == "") {
+          errores = errores + "Nombre, "
+        }
+        if (juguete.Stock == "") {
+          errores = errores + "Stock, "
+        }
+        if (juguete.Precio == "") {
+          errores = errores + "Precio"
+        }
+        alert("Los siguientes campos son requeridos: " + errores)
+      }
+    },
 
   async mounted() {
     const res = await fetch(

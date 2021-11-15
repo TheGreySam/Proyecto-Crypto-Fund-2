@@ -18,7 +18,18 @@
             <v-toolbar-title v-if="this.$store.state.currentUser">
               Billetera {{ this.$store.state.currentUser.fullName }} 1
             </v-toolbar-title>
+            
           </v-card>
+          <v-spacer></v-spacer>
+          <v-card class="d-flex align-center mb-6">
+           
+
+            <v-toolbar-title v-if="this.$store.state.currentUser">
+              Balance {{ this.$store.state.currentUser.walletOne }} USD
+            </v-toolbar-title>
+            
+          </v-card>
+          
 
           <v-spacer></v-spacer>
           <v-avatar size="150" class="p-5" tile>
