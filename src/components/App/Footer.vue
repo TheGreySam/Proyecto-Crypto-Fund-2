@@ -4,11 +4,13 @@
     dark
     padless
   >
+  
     <v-card
       class="flex"
       flat
       tile
     >
+    
     <v-card-text class="cfdarkblue" white--text>
         <div class="footer my-4 text-center">
         <v-row>

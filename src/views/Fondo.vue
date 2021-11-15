@@ -1,57 +1,45 @@
 <template>
   <div id="app">
     <SectionHero msg="Fondos" />
-    <v-container>
-      <v-card class="d-flex align-center" >
-        <v-app-bar
-       class="mx-auto"
-        color="cfdarkblue"
-        dark
-    
-        prominent
-        src="../assets/bitcoin-img.jpeg"
-      fade-img-on-scroll
-        elevate-on-scroll
-        scroll-target="#scrolling-techniques-7"
-        >
-        <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
-        <v-app-bar-nav-icon>
-            <img src="cryptoFundLogo3d.png" width="55" alt="">
-        </v-app-bar-nav-icon>
-        <p v-if="this.$store.state.currentUser">Billetera {{this.$store.state.currentUser.fullName}} 1</p>
-    
-        
-        <v-spacer></v-spacer>
-        <v-spacer></v-spacer>
-        <v-spacer></v-spacer>
-        <v-spacer></v-spacer>
-        <v-avatar size="100" class="p-2" tile>
-              <v-img src="wallet.png"></v-img>
-            </v-avatar>
-      </v-app-bar>
-      </v-card>
-      
-      <v-card class="mx-auto">
-        <div>
-          <v-row>
-            <v-col sm="6" md="6" cols="12">
-              <UserInfo />
-              <Porcentaje />
-              <Currency />
-            </v-col>
+    <template>
+      <div>
+        <v-app-bar dark prominent src="../assets/bitcoin-img.jpeg">
+          <template v-slot:img="{ props }">
+            <v-img
+              v-bind="props"
+              gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+            ></v-img>
+          </template>
+          <v-card class="d-flex align-center mb-6">
+            <v-app-bar-nav-icon>
+              <img src="cryptoFundLogo3d.png" width="55" alt="" />
+            </v-app-bar-nav-icon>
 
-            <v-col>
-              <GraficoTortaCripto />
-            </v-col>
-          </v-row>
-        </div>
-      </v-card>
-    </v-container>
+            <v-toolbar-title v-if="this.$store.state.currentUser">
+              Billetera {{ this.$store.state.currentUser.fullName }} 1
+            </v-toolbar-title>
+          </v-card>
+
+          <v-spacer></v-spacer>
+          <v-avatar size="150" class="p-5" tile>
+            <v-img src="wallet.png"></v-img>
+          </v-avatar>
+        </v-app-bar>
+      </div>
+    </template>
+    <div>
+      <v-row>
+        <v-col sm="6" md="6" cols="12">
+          <UserInfo />
+          <Porcentaje />
+          <Currency />
+        </v-col>
+
+        <v-col>
+          <GraficoTortaCripto />
+        </v-col>
+      </v-row>
+    </div>
   </div>
 </template>
 
@@ -72,7 +60,7 @@ export default {
     SectionHero,
     UserInfo,
     Porcentaje,
-    Currency
+    Currency,
   },
 };
 </script>

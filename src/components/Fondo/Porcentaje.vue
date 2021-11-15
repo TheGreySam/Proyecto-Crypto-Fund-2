@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1 mb-1">
+  <v-card class="mx-1 mb-1 pa-2 mt-5">
     <v-card-title class="pa-6 pb-3">
       <form @submit.prevent="calculate">
         <div>

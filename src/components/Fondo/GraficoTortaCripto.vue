@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-row dense>
         <v-col>
-          <v-card max-width="500" outlined elevation="2" class="pa-5">
+          <v-card max-width="500" outlined elevation="2" class="pa-2">
             <v-card-title class="pa-6 pb-3">
               <p>Criptomonedas Agrupadas</p>
               <v-spacer></v-spacer>
