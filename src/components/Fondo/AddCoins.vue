@@ -12,15 +12,12 @@
       <v-text-field
         type="number"
         v-model.number="selected.valueCoin"
-        label="Cupos del Curso"
+        label="Cantidad"
         required
       ></v-text-field>
       <h1>{{ this.id }}</h1>
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-       
-        
-      
     </v-card>
   </div>
 </template>
@@ -37,23 +34,23 @@ export default {
       id: {},
     };
   },
- 
+
   methods: {
     Agregar() {
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+      for (var i = 0; i < dataCurrentUser.length; i++) {
+        this.walletOne.push(dataCurrentUser[i]);
+      }
       this.walletOne.push(this.selected);
       console.log(this.walletOne);
     },
-    
-    addCoins() {
-  for (let i = 0; i < this.$store.state.currentUser.walletOne.lenght-1; i++) {
-this.walletOne.push(this.$store.state.currentUser.walletOne[i])
-}
 
+    addCoins() {
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
-
-        
       });
+      this.walletOne = []
+      this.$store.dispatch("subscribeToAuthStateChange")
     },
   },
 
