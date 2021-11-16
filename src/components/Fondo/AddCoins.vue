@@ -1,59 +1,106 @@
 <template>
   <div>
     <v-card>
-      <v-select
-        v-model="selected.nameCoin"
-        :items="coins"
-        item-text="name"
-        item-value="name"
-        label="I have"
-      ></v-select>
+      <v-container>
+        <v-row>
+          <v-col>
+            <!--v-select
+              v-model="selected.nameCoin"
+              :items="coins"
+              item-text="name"
+              item-value="name"
+              label="Ingresa tu moneda"
+            ></v-select>
 
-      <v-text-field
-        type="number"
-        v-model.number="selected.valueCoin"
-        label="Cupos del Curso"
-        required
-      ></v-text-field>
-      <h1>{{ this.id }}</h1>
-      <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
-      <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-       
-        
-      
+            <v-text-field
+              type="number"
+              v-model.number="selected.valueCoin"
+              label="Ingresa la cantidad"
+              required
+            ></v-text-field>
+
+            <v-btn block outlined color="cforange" @click="Agregar">
+              Agregar
+            </v-btn>
+            <v-btn block outlined color="cforange" @click="addCoins">
+              Guardar
+            </v-btn-->
+            <v-form ref="form" v-model="valid" lazy-validation>
+              
+              <v-text-field
+                v-model="walletOne.name"
+                label="Ingrese nombre de la moneda"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="walletOne.quantity"
+                label="Ingrese la cantidad"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="walletOne.value"
+                label="Ingrese el valor"
+                required
+              ></v-text-field>
+              <div id="botones">
+                <v-btn @click="addCoin(walletOne)" outlined>Agregar juguete</v-btn>
+              </div>
+            </v-form>
+          </v-col>
+          <v-col>
+            <p>{{ this.id }}</p>
+            <p>Balance</p>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card>
   </div>
 </template>
 
 <script>
 import Firebase from "firebase";
+import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.get_Coins();
+  },
   data() {
     return {
       coins: [],
       inputed: "",
       selected: { nameCoin: "", valueCoin: "" },
-      walletOne: [],
+      walletOne: {
+        name: "",
+        value: "",
+        quantity: "",
+      },
       id: {},
-      headers: [
-        { text: 'Moneda', value: 'moneda' },
-        { text: 'Cantidad', value: 'cantidad' },
-        { text: 'Acciones', value: 'actions' }
-      ]
     };
   },
+  computed: {
+    ...mapState(["usuarios"]),
+  },
   methods: {
-    Agregar() {
-      this.walletOne.push(this.selected,this.$store.state.currentUser.walletOne[0]);
-      console.log(this.walletOne);
+    ...mapActions(["get_Coins", "addCoin"]),
+    validate() {
+      this.$refs.form.validate();
     },
-    
-    addCoins() {
-      
-      Firebase.firestore().collection("usuarios").doc(this.id).update({
-        walletOne: this.walletOne,
-      });
+    reset() {
+      this.$refs.form.reset();
     },
+    //Agregar() {
+    //this.walletOne.push(
+    //this.selected,
+    //this.$store.state.currentUser.walletOne[0]
+    //);
+    //console.log(this.walletOne);
+    //},
+
+    //addCoins() {
+    //Firebase.firestore().collection("usuarios").doc(this.id).update({
+    //walletOne: this.walletOne,
+    //});
+    //},
   },
 
   async mounted() {
