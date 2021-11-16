@@ -42,5 +42,6 @@ export default {
 .card-cript{
   background-image: url("../../assets/footer.jpeg");
   background-position: center;
+  background-size: cover;
 }
 </style>

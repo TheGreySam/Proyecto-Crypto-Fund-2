@@ -1,5 +1,5 @@
 <template>
-  <v-card hover class="mb-5 pa-5 mx-auto card-cript">
+  <v-card hover class="mb-5 pa-5 mx-auto">
     <v-card-text>
       <v-row align="center">
         <v-col cols="4"> </v-col>
