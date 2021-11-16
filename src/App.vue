@@ -5,6 +5,7 @@
       <router-view />
     </v-main>
     <Footer />
+    <TicketPrice />
   </v-app>
 </template>
 
@@ -15,9 +16,10 @@ export default {
   components: {
     Navbar: () => import("./components/App/Navbar"),
     Footer: () => import("./components/App/Footer.vue"),
+    TicketPrice: () => import("./components/App/TicketPrice.vue")
   },
   mounted() {
-    // this.$store.dispatch("criptoInfo/subscribe")
+     //this.$store.dispatch("criptoInfo/subscribe")
     this.$store.dispatch("subscribeToAuthStateChange");
     // window.addEventListener("beforeunload", function(event) {
     //              event.returnValue = "Estoy escribiendo algo aquí ...";

@@ -51,7 +51,7 @@
           </v-icon>
         </v-btn>
       </v-card-text>
-      <v-card-text class="py-2 white--text text-center">
+      <v-card-text class="copi white--text text-center">
         {{ new Date().getFullYear() }} — <strong>Copyright Crypto Fund</strong>
       </v-card-text>
     </v-card>
@@ -80,5 +80,8 @@
 }
 .img-footer{
     border-radius: 50%;
+}
+.copi{
+  padding-bottom: 65px;
 }
 </style>
