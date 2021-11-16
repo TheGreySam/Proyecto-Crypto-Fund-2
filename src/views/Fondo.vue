@@ -40,7 +40,7 @@
     </template>
     <div>
       <v-row>
-        <v-col sm="6" md="6" cols="12">
+        <v-col sm="6" md="6" >
           <UserInfo />
           <AddMoneda />
           <AddCoins />
@@ -48,7 +48,7 @@
           
         </v-col>
 
-        <v-col sm="6" md="6" cols="12">
+        <v-col sm="6" md="6" >
           <GraficoTortaCripto />
         </v-col>
       </v-row>
@@ -78,6 +78,7 @@ export default {
     Currency,
     
   },
+  
 };
 </script>
 

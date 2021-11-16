@@ -67,27 +67,27 @@ export default new Vuex.Store({
       const { Código, name, Stock, currentPrice } = walletOne
       if (Código.length > 1 && name.length > 1 && Stock.length > 1 && currentPrice.length > 2) {
         walletOne.currentPrice = Number(walletOne.currentPrice);
-        walletOne.Stock = Number(walletOne.Stock);
+        walletOne.Cantidad = Number(walletOne.Cantidad);
         firebase
           .firestore()
           .collection("usuarios")
           .add(walletOne);
       }
       else {
-        let errores = ""
-        if (walletOne.Código == "") {
-          errores = errores + "Código, "
-        }
-        if (walletOne.name == "") {
-          errores = errores + "Nombre, "
-        }
-        if (walletOne.Stock == "") {
-          errores = errores + "Stock, "
-        }
-        if (walletOne.currentPrice == "") {
-          errores = errores + "Precio"
-        }
-        alert("Los siguientes campos son requeridos: " + errores)
+       // let errores = ""
+        //if (walletOne.Código == "") {
+        //  errores = errores + "Código, "
+        //}
+        //if (walletOne.name == "") {
+        //  errores = errores + "Nombre, "
+        //}
+        //if (walletOne.Cantidad == "") {
+        //  errores = errores + "Cantidad, "
+        //}
+        //if (walletOne.currentPrice == "") {
+        //  errores = errores + "Precio"
+        //}
+        //alert("Los siguientes campos son requeridos: " + errores)
       }
     },
     
