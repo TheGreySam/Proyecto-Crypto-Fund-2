@@ -17,7 +17,7 @@
       ></v-text-field>
       <h1>{{ this.id }}</h1>
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
-      <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
+      <v-btn block outlined color="cforange" @click="addMoneda"> Guardar </v-btn>
         <h1>{{ this.$store.state.currentUser.walletOne[0].nameCoin }}</h1>
         
       
@@ -54,35 +54,8 @@ export default {
     },
   },
   
-actions: {
-    //Agregar juguetes a firestore
-    addToy(state, juguete) {
-      const { Código, Nombre, Stock, Precio } = juguete
-      if (Código.length > 1 && Nombre.length > 1 && Stock.length > 1 && Precio.length > 2) {
-        juguete.Precio = Number(juguete.Precio);
-        juguete.Stock = Number(juguete.Stock);
-        firebase
-          .firestore()
-          .collection("juguetes")
-          .add(juguete);
-      }
-      else {
-        let errores = ""
-        if (juguete.Código == "") {
-          errores = errores + "Código, "
-        }
-        if (juguete.Nombre == "") {
-          errores = errores + "Nombre, "
-        }
-        if (juguete.Stock == "") {
-          errores = errores + "Stock, "
-        }
-        if (juguete.Precio == "") {
-          errores = errores + "Precio"
-        }
-        alert("Los siguientes campos son requeridos: " + errores)
-      }
-    },
+
+    
 
   async mounted() {
     const res = await fetch(

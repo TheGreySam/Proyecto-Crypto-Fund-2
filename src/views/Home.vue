@@ -13,6 +13,7 @@ export default {
   components: {
     MainSection: () => import("../components/Home/Main.vue"),
     
+    
   },
 };
 </script>
