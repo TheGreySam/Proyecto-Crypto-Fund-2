@@ -35,23 +35,24 @@ export default {
       selected: { nameCoin: "", valueCoin: "" },
       walletOne: [],
       id: {},
-      headers: [
-        { text: 'Moneda', value: 'moneda' },
-        { text: 'Cantidad', value: 'cantidad' },
-        { text: 'Acciones', value: 'actions' }
-      ]
     };
   },
+ 
   methods: {
     Agregar() {
-      this.walletOne.push(this.selected,this.$store.state.currentUser.walletOne[0]);
+      this.walletOne.push(this.selected);
       console.log(this.walletOne);
     },
     
     addCoins() {
-      
+  for (let i = 0; i < this.$store.state.currentUser.walletOne.lenght-1; i++) {
+this.walletOne.push(this.$store.state.currentUser.walletOne[i])
+}
+
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
+
+        
       });
     },
   },
