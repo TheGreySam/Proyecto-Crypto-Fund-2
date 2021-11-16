@@ -18,7 +18,7 @@
       <h1>{{ this.id }}</h1>
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-        <h1>{{ this.$store.state.currentUser.walletOne[0].nameCoin }}</h1>
+       
         
       
     </v-card>
@@ -44,10 +44,12 @@ export default {
   },
   methods: {
     Agregar() {
-      this.walletOne.push(this.selected);
+      this.walletOne.push(this.selected,this.$store.state.currentUser.walletOne[0]);
       console.log(this.walletOne);
     },
+    
     addCoins() {
+      
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
       });
