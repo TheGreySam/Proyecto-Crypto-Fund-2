@@ -10,9 +10,9 @@
       </thead>
       <tbody>
     <tr v-for="(wallet, i) in wallet" :key="i">
-          <td>{{ wallet.data.name }}</td>
-          <td>{{ wallet.data.value }}</td>
-          <td>$ {{ wallet.data.quantity }}</td>         
+          <td>{{ wallet.data.fullname }}</td>
+          <!--td>{{ wallet.data.value }}</td>
+          <td>$ {{ wallet.data.quantity }}</td-->         
               
     </tr>
     </tbody>
@@ -25,7 +25,7 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   name: "TablaDatos",
-  mounted() {
+  created() {
     this.get_Coins();
   },
   data() {

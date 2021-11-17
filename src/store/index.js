@@ -30,6 +30,9 @@ export default new Vuex.Store({
     GET_COINS(state, wallet) {
       state.wallet = wallet;
     },
+    SET_COINS(state, wallet) {
+      state.wallet = wallet;
+    },
   },
 
   actions: {
@@ -58,26 +61,41 @@ export default new Vuex.Store({
     //}
   },
 
-    get_Coins({commit}) {
-      Firebase
-      .firestore()
-      .collection("usuarios")
-      .onSnapshot((docs) => {
-        const wallet = [];
-        docs.forEach((doc) => {
-          wallet.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-        });
-        commit("GET_COINS", wallet)
-      });
+    //get_Coins({commit}) {
+      //Firebase
+      //.firestore()
+      //.collection("state.usuario.email.get")
+      //.onSnapshot((docs) => {
+        //const wallet = [];
+        //docs.forEach((doc) => {
+          //wallet.push({
+            //id: doc.id,
+            //data: doc.data(),
+          //});
+        //});
+        //commit("GET_COINS", wallet)
+      //});
+    //},
+    get_Coins({commit, state}) {
+      const wallet = []
+      Firebase.firestore().collection(state.currentUser.id).get()
+      .then(res => {
+        res.forEach(doc => {
+          let coin = doc.data()
+          coin.id = doc.id
+          wallet.push(coin)
+
+        })
+        commit('SET_COINS', wallet)
+        console.log(wallet)
+      })
+      .catch(error => console.log(error))
     },
 
     deleteCoins(context, id) {
       Firebase
       .firestore()
-      .collection("walletOne")
+      .collection("wallet")
       .doc(id)
       .delete();
     },

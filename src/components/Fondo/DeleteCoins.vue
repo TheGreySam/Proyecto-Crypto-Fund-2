@@ -11,9 +11,9 @@
       </thead>
       <tbody>
          <tr v-for="(wallet, i) in wallet" :key="i">
-          <td>{{ wallet.data.name }}</td>
+          <!--td>{{ wallet.data.name }}</td>
           <td>{{ wallet.data.value }}</td>
-          <td>$ {{ wallet.data.quantity }}</td>   
+          <td>$ {{ wallet.data.quantity }}</td-->   
           <td>
             <v-btn x-small @click="eliminarCoin(wallet.id)" outlined>Eliminar</v-btn>
           </td>
