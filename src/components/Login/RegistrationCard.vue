@@ -124,13 +124,14 @@ export default {
             this.$store.dispatch("defineCurrentUser", {
               email: response.user.email,
             });
-            this.$router.push("/fondo");
-            this.dialog = false;
             Firebase.firestore().collection("usuarios").add({
               email: this.email,
               fullName: this.fullName,
               rol: this.rol,
             });
+            this.$store.dispatch("subscribeToAuthStateChange");
+            this.dialog = false;
+            this.$router.push("/fondo");
           })
           .catch((error) => {
             console.error(error);

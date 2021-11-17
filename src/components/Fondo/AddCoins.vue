@@ -31,26 +31,29 @@ export default {
       inputed: "",
       selected: { nameCoin: "", valueCoin: "" },
       walletOne: [],
-      id: {},
+      id: "",
     };
   },
 
   methods: {
     Agregar() {
-      let dataCurrentUser = this.$store.state.currentUser.walletOne;
-      for (var i = 0; i < dataCurrentUser.length; i++) {
-        this.walletOne.push(dataCurrentUser[i]);
-      }
       this.walletOne.push(this.selected);
       console.log(this.walletOne);
+      this.selected = { nameCoin: "", valueCoin: "" }
     },
 
     addCoins() {
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+      if (dataCurrentUser !== undefined) {
+        for (var i = 0; i <= dataCurrentUser.length - 1; i++) {
+          this.walletOne.push(dataCurrentUser[i]);
+        }
+      }
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
       });
-      this.walletOne = []
-      this.$store.dispatch("subscribeToAuthStateChange")
+      this.walletOne = [];
+      this.$store.dispatch("subscribeToAuthStateChange");
     },
   },
 
