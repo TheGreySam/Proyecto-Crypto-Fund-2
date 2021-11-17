@@ -9,10 +9,10 @@
         </tr>
       </thead>
       <tbody>
-    <tr v-for="(walletOne, i) in walletOne" :key="i">
-          <td>{{ walletOne.data.name }}</td>
-          <td>{{ walletOne.data.value }}</td>
-          <td>$ {{ walletOne.data.quantity }}</td>         
+    <tr v-for="(wallet, i) in wallet" :key="i">
+          <td>{{ wallet.data.name }}</td>
+          <td>{{ wallet.data.value }}</td>
+          <td>$ {{ wallet.data.quantity }}</td>         
               
     </tr>
     </tbody>
@@ -30,18 +30,18 @@ export default {
   },
   data() {
     return {
-      walletOne: {
-        data: {
-          name: "",
-          value: "",
-          quantity: "",
-        },
-      },
+      //walletOne: {
+        //data: {
+          //name: "",
+          //value: "",
+          //quantity: "",
+        //},
+      //},
       dialog: false,
     };
   },
   computed: {
-    ...mapState(["walletOne"]),
+    ...mapState(["wallet"]),
   },
   methods: {
     ...mapActions(["get_Coins"]),

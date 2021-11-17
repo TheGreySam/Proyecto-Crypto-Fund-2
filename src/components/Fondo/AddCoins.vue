@@ -28,22 +28,22 @@
             <v-form ref="form" v-model="valid" lazy-validation>
               
               <v-text-field
-                v-model="walletOne.name"
+                v-model="wallet.name"
                 label="Ingrese nombre de la moneda"
                 required
               ></v-text-field>
               <v-text-field
-                v-model="walletOne.quantity"
+                v-model="wallet.quantity"
                 label="Ingrese la cantidad"
                 required
               ></v-text-field>
               <v-text-field
-                v-model="walletOne.value"
+                v-model="wallet.value"
                 label="Ingrese el valor"
                 required
               ></v-text-field>
               <div id="botones">
-                <v-btn @click="addCoin(walletOne)" outlined>Agregar juguete</v-btn>
+                <v-btn @click="addCoin(wallet)" outlined>Agregar juguete</v-btn>
               </div>
             </v-form>
           </v-col>
@@ -69,11 +69,12 @@ export default {
       coins: [],
       inputed: "",
       selected: { nameCoin: "", valueCoin: "" },
-      walletOne: {
+      wallet: {
         name: "",
         value: "",
         quantity: "",
       },
+      valid: true,
       id: {},
     };
   },

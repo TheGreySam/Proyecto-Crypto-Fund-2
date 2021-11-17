@@ -9,10 +9,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(walletOne, i) in walletOne" :key="i">
-          <td>{{ walletOne.data.name }}</td>
-          <td>{{ walletOne.data.value }}</td>
-          <td>$ {{ walletOne.data.quantity }}</td>
+        <tr v-for="(wallet, i) in wallets" :key="i">
+          <td>{{ wallet.data.name }}</td>
+          <td>{{ wallet.data.value }}</td>
+          <td>$ {{ wallet.data.quantity }}</td>
           <td>
             <v-btn x-small outlined flat @click="holahola()">Editar</v-btn>
             <v-layout row justify-center>
@@ -23,17 +23,17 @@
                   >
                   <v-form ref="form" v-model="valid" lazy-validation>
                     <v-text-field
-                      v-model="walletOne.name"
+                      v-model="wallet.name"
                       label="Ingrese nombre de la moneda"
                       required
                     ></v-text-field>
                     <v-text-field
-                      v-model="walletOne.quantity"
+                      v-model="wallet.quantity"
                       label="Ingrese la cantidad"
                       required
                     ></v-text-field>
                     <v-text-field
-                      v-model="walletOne.value"
+                      v-model="wallet.value"
                       label="Ingrese el valor"
                       required
                     ></v-text-field>
@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       dialog: false,
-      juguete: {
+      wallet: {
         name: "",
         value: "",
         quantity: "",

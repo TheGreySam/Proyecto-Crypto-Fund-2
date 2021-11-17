@@ -10,6 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentUser: null,
+    wallet: null
   },
 
   getters: {
@@ -26,35 +27,50 @@ export default new Vuex.Store({
     SET_USER(state, newUser) {
       state.currentUser = newUser;
     },
-    GET_COINS(state, walletOne) {
-      state.walletOne = walletOne;
+    GET_COINS(state, wallet) {
+      state.wallet = wallet;
     },
   },
 
   actions: {
-    addCoin(state, walletOne) {
-      const { name, value, quantity } = walletOne
-      walletOne.value = Number(walletOne.value);
-      walletOne.quantity = Number(walletOne.quantity);
-      Firebase
+    addCoin(state, wallet) {
+      const { name, value, quantity } = wallet
+      if (name.length > 1 && value.length > 1 && quantity.length > 2) {
+      wallet.value = Number(wallet.value);
+      wallet.quantity = Number(wallet.quantity);
+      firebase
       .firestore()
       .collection("usuarios")
-      .add(walletOne);
-    },
+      .add(wallet);
+    }
+    //else {
+      //let errores = ""
+      //if (wallet.name == "") {
+      //  errores = errores + "Nombre, "
+      //}
+      //if (wallet.value == "") {
+      //  errores = errores + "Valor, "
+      //}
+      //if (wallet.quantity == "") {
+      //  errores = errores + "Cantidad,"
+      //}
+      //alert("Los siguientes campos son requeridos: " + errores)
+    //}
+  },
 
     get_Coins({commit}) {
       Firebase
       .firestore()
       .collection("usuarios")
       .onSnapshot((docs) => {
-        const walletOne = [];
+        const wallet = [];
         docs.forEach((doc) => {
-          walletOne.push({
+          wallet.push({
             id: doc.id,
             data: doc.data(),
           });
         });
-        commit("GET_COINS", walletOne)
+        commit("GET_COINS", wallet)
       });
     },
 
@@ -101,7 +117,7 @@ export default new Vuex.Store({
                   newUser.rol = data.rol;
                   newUser.id = document.id;
                   newUser.fullName = data.fullName;
-                  newUser.walletOne = data.walletOne;
+                  newUser.wallet = data.wallet;
                 }
               });
               context.commit("SET_USER", { ...newUser });

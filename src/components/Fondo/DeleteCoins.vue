@@ -10,12 +10,12 @@
         </tr>
       </thead>
       <tbody>
-         <tr v-for="(walletOne, i) in walletOne" :key="i">
-          <td>{{ walletOne.data.name }}</td>
-          <td>{{ walletOne.data.value }}</td>
-          <td>$ {{ walletOne.data.quantity }}</td>   
+         <tr v-for="(wallet, i) in wallet" :key="i">
+          <td>{{ wallet.data.name }}</td>
+          <td>{{ wallet.data.value }}</td>
+          <td>$ {{ wallet.data.quantity }}</td>   
           <td>
-            <v-btn x-small @click="eliminarCoin(walletOne.id)" outlined>Eliminar</v-btn>
+            <v-btn x-small @click="eliminarCoin(wallet.id)" outlined>Eliminar</v-btn>
           </td>
         </tr>
       </tbody>
@@ -30,10 +30,11 @@ export default {
   mounted() {
     this.get_Coins();
   },
+  
   data() {
     return {
       alert: false,
-      walletOne: {
+      wallet: {
         name: "",
         value: "",
         quantity: "",
@@ -48,7 +49,7 @@ export default {
  
     eliminarCoin(id) {
       this.$swal({
-      title: '¿Estas seguro de eliminar este juguete?',
+      title: '¿Estas seguro de eliminar este moneda?',
       type: 'warning',
       width: 600,
       padding: '3em',
@@ -66,8 +67,8 @@ export default {
       }).then((result) => {
         if (result.value){
           this.$swal(
-            'Eliminado',
-            'El jueguete fue eliminado correctamente',
+            'Eliminada',
+            'La moneda fue eliminada correctamente',
             'success'
           )
           this.deleteCoins(id)

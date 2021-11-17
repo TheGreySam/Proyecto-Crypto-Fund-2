@@ -25,7 +25,7 @@
            
 
             <v-toolbar-title v-if="this.$store.state.currentUser">
-              Balance {{ this.$store.state.currentUser.walletOne }} USD
+              Balance {{ this.$store.state.currentUser.wallet }} USD
             </v-toolbar-title>
             
           </v-card>
