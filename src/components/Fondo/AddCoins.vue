@@ -39,13 +39,14 @@ export default {
     Agregar() {
       this.walletOne.push(this.selected);
       console.log(this.walletOne);
-      this.selected = { nameCoin: "", valueCoin: "" }
+      this.$store.dispatch("subscribeToAuthStateChange");
+      this.selected = { nameCoin: "", valueCoin: "" };
     },
 
     addCoins() {
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       if (dataCurrentUser !== undefined) {
-        for (var i = 0; i <= dataCurrentUser.length - 1; i++) {
+        for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
           this.walletOne.push(dataCurrentUser[i]);
         }
       }

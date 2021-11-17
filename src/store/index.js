@@ -14,8 +14,7 @@ export default new Vuex.Store({
 
   getters: {
     userRol(state) {
-      if (state.currentUser.rol) 
-      return state.currentUser.rol 
+      if (state.currentUser.rol) return state.currentUser.rol;
     },
   },
 
@@ -53,7 +52,8 @@ export default new Vuex.Store({
               });
               context.commit("SET_USER", { ...newUser });
             });
-        } else {
+        }      
+        else {
           context.commit("SET_USER", null);
         }
       });
