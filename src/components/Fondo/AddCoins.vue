@@ -37,10 +37,37 @@ export default {
 
   methods: {
     Agregar() {
-      this.walletOne.push(this.selected);
-      console.log(this.walletOne);
-      this.$store.dispatch("subscribeToAuthStateChange");
-      this.selected = { nameCoin: "", valueCoin: "" };
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+      if (dataCurrentUser !== undefined) {
+        let funciona = 0;
+        console.log(funciona);
+
+        for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
+          if (
+            this.$store.state.currentUser.walletOne[i].nameCoin ===
+            this.selected.nameCoin
+          ) {
+            funciona = 1;
+            console.log(funciona);
+          } else {
+            console.log("No Funciona");
+          }
+        }
+
+        if (funciona === 1) {
+          this.$swal("Upss, correo o contraseña incorrectos");
+        } else {
+          this.walletOne.push(this.selected);
+          console.log(this.walletOne);
+          this.$store.dispatch("subscribeToAuthStateChange");
+          this.selected = { nameCoin: "", valueCoin: "" };
+        }
+      } else {
+        this.walletOne.push(this.selected);
+        console.log(this.walletOne);
+        this.$store.dispatch("subscribeToAuthStateChange");
+        this.selected = { nameCoin: "", valueCoin: "" };
+      }
     },
 
     addCoins() {
