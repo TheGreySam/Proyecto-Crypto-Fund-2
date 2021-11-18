@@ -17,6 +17,19 @@
       ></v-text-field>
       <h1>{{ this.id }}</h1>
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
+      <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
+      <div v-if="this.walletOne[0]">
+        <h1
+          v-for="(wallet, index) in this.walletOne"
+          :key="index"
+          class="text-subtitle-1"
+        >
+          {{ wallet.valueCoin }} {{ wallet.nameCoin }}
+        </h1>
+      </div>
+
+      <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
+      <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
     </v-card>
   </div>
@@ -32,10 +45,64 @@ export default {
       selected: { nameCoin: "", valueCoin: "" },
       walletOne: [],
       id: "",
+      indice: "",
     };
   },
 
   methods: {
+    borrar() {
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+
+      let funciona = 0;
+      console.log(funciona);
+
+      for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
+        let indice = i;
+        if (
+          this.$store.state.currentUser.walletOne[i].nameCoin ===
+          this.selected.nameCoin
+        ) {
+          funciona = 1;
+          const indicedos = indice;
+          this.indice = indicedos;
+          console.log(funciona, indicedos);
+        } else {
+          console.log("No Funciona");
+        }
+      }
+      if (funciona === 1) {
+        this.$store.state.currentUser.walletOne.splice(this.indice, 1);
+        
+      } else {
+      }
+    },
+    editar() {
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+
+      let funciona = 0;
+      console.log(funciona);
+
+      for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
+        let indice = i;
+        if (
+          this.$store.state.currentUser.walletOne[i].nameCoin ===
+          this.selected.nameCoin
+        ) {
+          funciona = 1;
+          const indicedos = indice;
+          this.indice = indicedos;
+          console.log(funciona, indicedos);
+        } else {
+          console.log("No Funciona");
+        }
+      }
+      if (funciona === 1) {
+        this.$store.state.currentUser.walletOne[this.indice].valueCoin =
+            this.selected.valueCoin;
+       
+      } else {
+      }
+    },
     Agregar() {
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       if (dataCurrentUser !== undefined) {
@@ -43,19 +110,24 @@ export default {
         console.log(funciona);
 
         for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
+          let indice = i;
           if (
             this.$store.state.currentUser.walletOne[i].nameCoin ===
             this.selected.nameCoin
           ) {
             funciona = 1;
-            console.log(funciona);
+            const indicedos = indice;
+            this.indice = indicedos;
+            console.log(funciona, indicedos);
           } else {
             console.log("No Funciona");
           }
         }
 
         if (funciona === 1) {
-          this.$swal("Upss, correo o contraseña incorrectos");
+          this.$store.state.currentUser.walletOne[this.indice].valueCoin =
+            this.$store.state.currentUser.walletOne[this.indice].valueCoin +
+            this.selected.valueCoin;
         } else {
           this.walletOne.push(this.selected);
           console.log(this.walletOne);
@@ -80,6 +152,7 @@ export default {
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
       });
+      this.selected = { nameCoin: "", valueCoin: "" };
       this.walletOne = [];
       this.$store.dispatch("subscribeToAuthStateChange");
     },
