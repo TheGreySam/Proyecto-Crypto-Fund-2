@@ -10,7 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentUser: null,
-    data: []
+    data: [],
   },
 
   getters: {
@@ -53,8 +53,7 @@ export default new Vuex.Store({
               });
               context.commit("SET_USER", { ...newUser });
             });
-        }      
-        else {
+        } else {
           context.commit("SET_USER", null);
         }
       });

@@ -230,6 +230,7 @@ export default {
       this.calculo();
     },
     calculo() {
+      
       this.dataCoins = [];
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       let dataCoin = this.coins;
@@ -254,7 +255,8 @@ export default {
         });
       });
       this.$store.state.data = this.dataCoins;
-    },
+    }
+    
   },
   async mounted() {
     const res = await fetch(

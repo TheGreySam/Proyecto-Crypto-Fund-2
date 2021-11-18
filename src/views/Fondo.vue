@@ -33,6 +33,7 @@
         <v-col md="6 pl-5" cols="12">
            <div >
             <UserInfo />
+            <GraficoTortaCripto />
           </div>
           
         
@@ -52,7 +53,7 @@
 import Bucle from "@/components/Fondo/Bucle";
 import Balance from "@/components/Fondo/Balance";
 import AddCoins from "@/components/Fondo/AddCoins";
-import GraficoCripto from "@/components/Fondo/GraficoCripto";
+import GraficoTortaCripto from "@/components/Fondo/GraficoTortaCripto";
 import SectionHero from "../components/SectionHero.vue";
 import UserInfo from "@/components/Fondo/UserInfo";
 import Porcentaje from "@/components/Fondo/Porcentaje";
@@ -63,7 +64,7 @@ export default {
   name: "App",
   components: {
     Balance,
-    GraficoCripto,
+    GraficoTortaCripto,
     AddCoins,
     SectionHero,
     UserInfo,

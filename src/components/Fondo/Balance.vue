@@ -3,7 +3,9 @@
     <v-card class="mx-1 mb-1 mt-5 p-2">
       <v-container>
           <v-card-title class="pa-3 pb-1">
-               <p >Balance total: {{this.totalCoin()}} USD</p>
+               <p >Balance total: {{this.totalCoin().toLocaleString("de-DE", {
+                  maximumSignificantDigits: 10,
+                })}} USD</p>
           
             </v-card-title>
         <v-simple-table class="mb-5">
@@ -22,13 +24,17 @@
               >
                 <td class="text-subtitle-1">{{ data.name }}</td>
                 <td class="text-uppercase text-subtitle-1 font-italic">
-                  {{ data.price }} USD
+                  {{ data.price.toLocaleString("de-DE", {
+                  maximumSignificantDigits: 10,
+                }) }} USD
                 </td>
                 <td class="text-uppercase text-subtitle-1 font-italic">
                   {{ data.valueCoin }}
                 </td>
                 <td class="text-uppercase text-subtitle-1 font-italic">
-                  {{ data.price * data.valueCoin }} USD
+                  {{ (data.price * data.valueCoin).toLocaleString("de-DE", {
+                  maximumSignificantDigits: 10,
+                })}} USD
                 </td>
                
               </tr>
