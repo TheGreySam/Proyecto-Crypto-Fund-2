@@ -31,15 +31,17 @@
     <v-container fluid>
       <v-row class="pt-5">
         <v-col md="6 pl-5" cols="12">
-          <AddCoins />
-          <EditarCoins />
-        </v-col>
-
-        <v-col md="6 pr-5" cols="12">
           <div class="pb-5">
             <UserInfo />
           </div>
           <GraficoCripto />
+         
+        </v-col>
+
+        <v-col md="6 pr-5" cols="12">
+           <AddCoins />
+          <EditarCoins />
+          
         </v-col>
       </v-row>
     </v-container>

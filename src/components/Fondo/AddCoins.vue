@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-card lclass="mx-1 mb-1 mt-5 p-2">
-      
-        <v-select
+      <v-select
         v-model="selected.nameCoin"
         :items="coins"
         item-text="name"
@@ -16,24 +15,13 @@
         label="Cantidad"
         required
       ></v-text-field>
-     
-      <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
-      <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
-      <div v-if="this.walletOne[0]">
-        <h1
-          v-for="(wallet, index) in this.walletOne"
-          :key="index"
-          class="text-subtitle-1"
-        >
-          {{ wallet.valueCoin }} {{ wallet.nameCoin }}
-        </h1>
-      </div>
 
-      
+      <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
       <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
-      <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-      <v-btn block outlined color="cforange" @click="actualizar">Actualizar</v-btn>
+      <v-btn block outlined color="cforange" @click="actualizar"
+        >Actualizar</v-btn
+      >
       <h1></h1>
     </v-card>
   </div>
@@ -74,7 +62,26 @@ export default {
       }
       if (funciona === 1) {
         this.$store.state.currentUser.walletOne.splice(this.indice, 1);
+        this.$swal({
+          title: "Estás seguro de borrar el curso?",
+          text: "No Podrás revertir los cambios!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, quiero borrarlo!",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal("La Moneda se ha borrado exitosamente").then(() => {
+              this.addCoins();
+              this.actualizar();
+              this.actualizar();
+            });
+          }
+        });
       } else {
+        this.$swal("La Moneda que quieres borrar no existe");
       }
     },
     editar() {
@@ -98,7 +105,24 @@ export default {
       if (funciona === 1) {
         this.$store.state.currentUser.walletOne[this.indice].valueCoin =
           this.selected.valueCoin;
+        this.$swal({
+          title: "Estás seguro de editar la Moneda?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, quiero editarla!",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal("La Moneda se ha editado exitosamente").then(() => {
+              this.addCoins();
+              this.actualizar();
+            });
+          }
+        });
       } else {
+        this.$swal("La Moneda que quieres editar no existe");
       }
     },
     Agregar() {
@@ -124,17 +148,67 @@ export default {
           this.$store.state.currentUser.walletOne[this.indice].valueCoin =
             this.$store.state.currentUser.walletOne[this.indice].valueCoin +
             this.selected.valueCoin;
+          this.$swal({
+            title: "Estás seguro de agregar la Moneda?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, quiero agregarla!",
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$swal("La Moneda se ha agregado exitosamente").then(() => {
+                this.addCoins();
+                this.actualizar();
+              });
+            }
+          });
         } else {
           this.walletOne.push(this.selected);
           console.log(this.walletOne);
           this.$store.dispatch("subscribeToAuthStateChange");
           this.selected = { nameCoin: "", valueCoin: "" };
+
+          this.$swal({
+            title: "Estás seguro de agregar la Moneda?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, quiero agregarla!",
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$swal("La Moneda se ha agregado exitosamente").then(() => {
+                this.addCoins();
+                this.actualizar();
+              });
+            }
+          });
         }
       } else {
         this.walletOne.push(this.selected);
         console.log(this.walletOne);
         this.$store.dispatch("subscribeToAuthStateChange");
         this.selected = { nameCoin: "", valueCoin: "" };
+
+        this.$swal({
+          title: "Estás seguro de agregar la Moneda?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, quiero agregarla!",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal("La Moneda se ha agregado exitosamente").then(() => {
+              this.addCoins();
+              this.actualizar();
+            });
+          }
+        });
       }
     },
     addCoins() {
@@ -159,7 +233,7 @@ export default {
       this.dataCoins = [];
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       let dataCoin = this.coins;
-      
+
       dataCurrentUser.forEach((coin, index) => {
         let indiceFire = index;
         let nameCoinFire = coin.nameCoin;
@@ -176,11 +250,10 @@ export default {
           };
           if (nameCoinFire == nameCoinApi) {
             this.dataCoins.push(data);
-          
           }
         });
       });
-        this.$store.state.data = this.dataCoins
+      this.$store.state.data = this.dataCoins;
     },
   },
   async mounted() {
