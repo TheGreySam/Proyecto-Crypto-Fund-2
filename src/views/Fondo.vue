@@ -16,7 +16,7 @@
             </v-app-bar-nav-icon>
 
             <v-toolbar-title v-if="this.$store.state.currentUser">
-              Billetera {{ this.$store.state.currentUser.fullName }} 1
+              Billetera {{ this.$store.state.currentUser.fullName }}
             </v-toolbar-title>
           </v-card>
 
@@ -31,6 +31,7 @@
       <v-row>
         <v-col sm="6" md="6" cols="12">
           <UserInfo />
+          <Balance />
          
         </v-col>
 
@@ -52,6 +53,7 @@ import UserInfo from "@/components/Fondo/UserInfo";
 import Porcentaje from "@/components/Fondo/Porcentaje";
 import Currency from "@/components/Fondo/Currency";
 import EditarCoins from "@/components/Fondo/EditarCoins";
+import Balance from "@/components/Fondo/Balance";
 
 export default {
   name: "App",
@@ -62,7 +64,8 @@ export default {
     UserInfo,
     Porcentaje,
     Currency,
-    EditarCoins
+    EditarCoins,
+    Balance
   },
 };
 </script>
