@@ -263,6 +263,7 @@ export default {
     const data = await res.json();
     (this.coins = data), console.log(data);
     this.id = this.$store.state.currentUser.id;
+    this.actualizar()
   },
 };
 </script>
