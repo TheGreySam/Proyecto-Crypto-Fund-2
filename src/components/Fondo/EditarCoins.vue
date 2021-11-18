@@ -2,11 +2,8 @@
   <div>
     <v-card class="mx-1 mb-1 mt-5">
       <v-container>
-        
 
-      
-
-      <v-simple-table dark class="px-5 mx-5 mb-5">
+      <v-simple-table class="px-5 mx-5 mb-5">
         <template v-slot:default>
           <thead>
             <tr>
