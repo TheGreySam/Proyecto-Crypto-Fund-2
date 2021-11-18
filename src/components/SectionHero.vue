@@ -1,6 +1,33 @@
 <template>
-    <div>
-        <section class="hero-section pb-5">
+ <div>
+        <v-app-bar  prominent src="../assets/fondos.jpg" height="450px">
+          <template v-slot:img="{ props }">
+            <v-img
+            class="img-hero"
+              v-bind="props"
+              gradient="to top right, rgba(143,101,59,.7), rgba(70,70,69,.7), rgba(6,5,2,.7), rgba(143,101,59,.7)"
+            ></v-img>
+          </template>
+           <v-container>
+        <v-row>
+          <v-col cols="12">
+            <div class="hero-text">
+            <h2 class="text-h2 font-weight-bold white--text">. . .</h2>
+            <h2 class="text-h2 font-weight-bold pb-5 text-title white--text">
+              CRYPTO FUND
+            </h2>
+            <h3 class="text-h5 font-weight-regular white--text pb-5">
+              {{ msg }}
+            </h3>
+             <v-icon class="white--text">mdi-arrow-down</v-icon>
+            </div>
+          </v-col>
+        </v-row>
+         </v-container>
+        </v-app-bar>
+      
+    
+        <!-- <section class="hero-section pb-5">
          <v-container>
         <v-row>
           <v-col cols="12">
@@ -17,7 +44,7 @@
           </v-col>
         </v-row>
          </v-container>
-      </section>
+      </section> -->
     </div>
 </template>
 
@@ -35,35 +62,11 @@ export default {
 .hero-section{
     position: relative;
     color: #fff;
-    background-color: #000;
-    background-image: url("../assets/fondos.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
 }
 .hero-text{
   margin-top: 110px;
   text-align: center;
 }
 
-.text-title  {
-  background: linear-gradient(-45deg, #ffffff, #ee7752, #e73c7e, #23a6d5, #23d5ab, #fff);
-  -webkit-background-clip: text;
-   background-size: 400% 400%;
-  color: transparent; 
-  animation: gradient 15s ease infinite;
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  } 
-}
 </style>
