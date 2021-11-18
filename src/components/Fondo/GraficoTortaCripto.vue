@@ -4,9 +4,7 @@
       <v-row dense>
         <v-col>
           <v-card max-width="500" outlined elevation="2" class="pa-2">
-            <v-card-title class="pa-6 pb-3">
-              <h1 class="text-h5">Criptomonedas Agrupadas</h1>
-            </v-card-title>
+            
             <div class="Chart">
               <DoughnutExample
                 elevation="2"
@@ -60,6 +58,7 @@ export default {
       },
     };
   },
+ 
 
   methods: {
     updateChart() {
@@ -85,7 +84,13 @@ export default {
         this.totalTotal = []
       });
     },
+    
   },
+  mounted: function() {
+    this.$nextTick(this.grafico());
+  },
+
+  
 };
 </script>
 
