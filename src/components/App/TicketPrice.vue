@@ -10,8 +10,8 @@
       show-arrows
     >
       <v-slide-item
-        v-for="n in filteredCoins"
-        :key="n"
+        v-for="(coin, i) in filteredCoins"
+        :key="i"
         v-slot="{ active, toggle }"
       >
         <v-btn
@@ -22,9 +22,9 @@
           rounded
           @click="toggle"
         >
-        <v-img :src="n.image" :alt="n.name" width="2rem"> </v-img>
-           {{ n.name }} $ {{
-                n.current_price.toLocaleString("de-DE", {
+        <v-img :src="coin.image" :alt="coin.name" width="2rem"> </v-img>
+           {{ coin.name }} $ {{
+                coin.current_price.toLocaleString("de-DE", {
                   maximumSignificantDigits: 10,
                 })
               }}
@@ -53,8 +53,8 @@ export default {
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false"
     );
     const data = await res.json();
-    (this.coins = data), console.log(data);
-    (this.filteredCoins = data), console.log(data);
+    (this.coins = data);
+    (this.filteredCoins = data);
   },
 
     methods: {

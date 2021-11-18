@@ -6,7 +6,7 @@
           <v-col cols="12">
             <div class="hero-text">
             <h2 class="text-h2 font-weight-bold">. . .</h2>
-            <h2 class="text-h2 font-weight-bold pb-5">
+            <h2 class="text-h2 font-weight-bold pb-5 text-title">
               CRYPTO FUND
             </h2>
             <h3 class="text-h5 font-weight-regular pb-5">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'Herosection',
      props: {
@@ -46,4 +47,23 @@ export default {
   text-align: center;
 }
 
+.text-title  {
+  background: linear-gradient(-45deg, #ffffff, #ee7752, #e73c7e, #23a6d5, #23d5ab, #fff);
+  -webkit-background-clip: text;
+   background-size: 400% 400%;
+  color: transparent; 
+  animation: gradient 15s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  } 
+}
 </style>
