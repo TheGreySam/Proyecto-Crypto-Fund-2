@@ -16,7 +16,7 @@
         label="Cantidad"
         required
       ></v-text-field>
-      
+     
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
       <div v-if="this.walletOne[0]">
@@ -34,6 +34,7 @@
       <v-btn block outlined color="cforange" @click="actualizar">
         actualizar
       </v-btn>
+      <h1></h1>
     </v-card>
   </div>
 </template>
@@ -157,12 +158,11 @@ export default {
       this.$store.dispatch("subscribeToAuthStateChange");
       this.selected = { nameCoin: "", valueCoin: "" };
       this.walletOne = [];
-      
     },
 
     actualizar() {
       this.$store.dispatch("subscribeToAuthStateChange");
-      this.calculo()
+      this.calculo();
     },
     calculo() {
       this.dataCoins = [];

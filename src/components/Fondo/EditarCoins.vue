@@ -37,18 +37,15 @@ export default {
   data() {
     return {
       titles: ["Nombre moneda", "Cantidad"],
-      textSearch: "",
+      
     };
   },
-  async mounted() {
-    this.loading = true;
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false"
-    );
-    const data = await res.json();
-    (this.coins = data), console.log(data);
-    (this.filteredCoins = data), console.log(data);
-    this.loading = false;
-  },
+
+  methods: {
+    editGrade(){
+      let valor = this.value
+      console.log(valor)
+    }
+  }
 };
 </script>
