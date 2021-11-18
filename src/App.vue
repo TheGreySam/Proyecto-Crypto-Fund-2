@@ -19,7 +19,7 @@ export default {
     TicketPrice: () => import("./components/App/TicketPrice.vue")
   },
   mounted() {
-     this.$store.dispatch("criptoInfo/subscribe")
+    //  this.$store.dispatch("criptoInfo/subscribe")
     this.$store.dispatch("subscribeToAuthStateChange");
     // window.addEventListener("beforeunload", function(event) {
     //              event.returnValue = "Estoy escribiendo algo aquí ...";

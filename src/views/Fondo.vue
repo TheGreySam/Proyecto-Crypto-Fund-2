@@ -37,7 +37,8 @@
         <v-col sm="6" md="6" cols="12">
            <AddCoins />
           <EditarCoins />
-          
+          <GraficoCripto />
+          <Bucle />
         </v-col>
       </v-row>
     </div>
@@ -45,6 +46,7 @@
 </template>
 
 <script>
+import Bucle from "@/components/Fondo/Bucle";
 import AddCoins from "@/components/Fondo/AddCoins"
 import GraficoCripto from "@/components/Fondo/GraficoCripto";
 import SectionHero from "../components/SectionHero.vue";
@@ -62,7 +64,8 @@ export default {
     UserInfo,
     Porcentaje,
     Currency,
-    EditarCoins
+    EditarCoins,
+    Bucle
   },
 };
 </script>
