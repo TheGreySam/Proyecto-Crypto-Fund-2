@@ -34,8 +34,9 @@
           <AddCoins />
         </v-col>
 
-        <v-col>
-          <GraficoTortaCripto />
+        <v-col sm="6" md="6" cols="12">
+          <EditarCoins />
+          <GraficoCripto />
         </v-col>
       </v-row>
     </div>
@@ -49,6 +50,7 @@ import SectionHero from "../components/SectionHero.vue";
 import UserInfo from "@/components/Fondo/UserInfo";
 import Porcentaje from "@/components/Fondo/Porcentaje";
 import Currency from "@/components/Fondo/Currency";
+import EditarCoins from "@/components/Fondo/EditarCoins";
 
 export default {
   name: "App",
@@ -59,6 +61,7 @@ export default {
     UserInfo,
     Porcentaje,
     Currency,
+    EditarCoins
   },
 };
 </script>
