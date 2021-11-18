@@ -31,16 +31,11 @@
     <v-container fluid>
       <v-row class="pt-5">
         <v-col md="6 pl-5" cols="12">
-           <div >
-            <UserInfo />
-            <GraficoTortaCripto />
-          </div>
-          
-        
-         
+          <UserInfo />
+          <GraficoTortaCripto />
         </v-col>
 
-        <v-col md="6 pl-5" cols="12">
+        <v-col md="6 pr-5" cols="12">
           <AddCoins />
           <Balance />
         </v-col>

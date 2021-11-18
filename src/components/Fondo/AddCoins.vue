@@ -36,7 +36,7 @@
         cols="12"
         sm="4"
       >
-      <v-btn block outlined color="cforange" @click="Agregar"> Agregar
+      <v-btn block outlined color="cfdarkblue" @click="Agregar"> Agregar
         <v-icon dark>
         mdi-plus
       </v-icon> </v-btn>
@@ -45,7 +45,7 @@
         cols="12"
         sm="4"
       >
-      <v-btn block outlined color="cforange" @click="editar"> Editar 
+      <v-btn block outlined color="cfdarkblue" @click="editar"> Editar 
         <v-icon> mdi-pencil </v-icon>
       </v-btn>
       </v-col>
@@ -53,7 +53,7 @@
         cols="12"
         sm="4"
       >
-      <v-btn block outlined color="cforange" @click="borrar"> Borrar 
+      <v-btn block outlined color="cfdarkblue" @click="borrar"> Borrar 
           <v-icon> mdi-delete </v-icon>
       </v-btn>
       </v-col>
@@ -61,7 +61,7 @@
         cols="12"
         sm="12"
       >
-      <v-btn block outlined color="cforange" @click="actualizar"
+      <v-btn block outlined color="cfdarkblue" @click="actualizar"
         >Actualizar</v-btn
       >
       </v-col>

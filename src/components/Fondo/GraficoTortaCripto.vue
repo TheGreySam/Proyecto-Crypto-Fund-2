@@ -3,10 +3,10 @@
     <v-container fluid>
       <v-row dense>
         <v-col>
-          <v-card max-width="500" outlined elevation="2" class="pa-2">
-            
+          <v-card outlined elevation="2">
             <div class="Chart">
               <DoughnutExample
+                class="pa-8 pb-8"
                 elevation="2"
                 ref="skills_chart"
                 :chart-data="chartData"
@@ -14,9 +14,16 @@
               >
               </DoughnutExample>
             </div>
-            <v-btn block outlined color="cforange" @click="grafico">
-              Agregar
+            <v-row>
+              <v-col cols="12" sm="3"></v-col>
+              <v-col cols="12" sm="6" class="pb-12">
+                <v-btn block outlined color="cfdarkblue" @click="grafico">
+              Mostrar grafico actualizado
             </v-btn>
+             </v-col>
+             <v-col cols="12" sm="3"></v-col>
+            </v-row>
+            
           </v-card>
         </v-col>
       </v-row>
@@ -58,16 +65,15 @@ export default {
       },
     };
   },
- 
 
   methods: {
     updateChart() {
       this.$refs.skills_chart.update();
     },
     grafico() {
-       this.chartData.datasets[0].data = []
-       this.chartData.datasets[0].backgroundColor = []
-       this.chartData.labels = []
+      this.chartData.datasets[0].data = [];
+      this.chartData.datasets[0].backgroundColor = [];
+      this.chartData.labels = [];
 
       this.$store.state.data.forEach((coin) => {
         let name = coin.name;
@@ -80,17 +86,14 @@ export default {
         this.chartData.datasets[0].backgroundColor.push(randomColor());
         this.updateChart();
         console.log(this.chartData.datasets[0].data);
-        this.dataa = [];
-        this.totalTotal = []
+        this.data = [];
+        this.totalTotal = [];
       });
     },
-    
   },
-  mounted: function() {
+  mounted: function () {
     this.$nextTick(this.grafico());
   },
-
-  
 };
 </script>
 
