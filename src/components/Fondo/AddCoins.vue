@@ -34,6 +34,16 @@
       <v-btn block outlined color="cforange" @click="actualizar">
         actualizar
       </v-btn>
+      <h1>
+        esto es data Coins 
+        <p v-for="( data,index) in this.dataCoins" :key="index">
+
+         nombre: {{data.name}}
+          cantida: {{data.valueCoin}}
+          precio: {{data.price}}
+        </p>
+
+      </h1>
     </v-card>
   </div>
 </template>

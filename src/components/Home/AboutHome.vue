@@ -22,7 +22,7 @@
               <h2 class="text-h2 font-weight-bold pb-5 about-title">
                 Sobre Nosotros
               </h2>
-              <h3 class="text-h5 text-left font-weight-regularpb-5">
+              <h3 class="text-h5 text-left font-weight-regular pb-5">
                 Somos una plataforma donde actuarás como tu propio administrador
                 de inversiones del mundo de las criptomonedas, permitiéndote
                 obtener valores y estadísticas sobre el manejo de tus fondos
@@ -87,6 +87,15 @@ export default {
     position: relative;
      bottom: 100px;
     left: 160px;
+    width: 400px;
+  } 
+  
+}
+@media screen and (min-width: 1700px){
+  .img-about2 {
+    position: relative;
+     bottom: 90px;
+    left: 50px;
     width: 400px;
   } 
   

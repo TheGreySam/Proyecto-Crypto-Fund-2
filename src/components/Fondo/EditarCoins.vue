@@ -3,18 +3,7 @@
     <v-container>
       <h1 class="text-center py-5">Tu Billetera</h1>
 
-      <v-form ref="form">
-        <v-text-field
-          dark
-          outlined
-          class="px-5"
-          placeholder="Buscar Moneda"
-          background-color="grey darken-4"
-          color="white"
-          @keyup="searchCoin()"
-          v-model="textSearch"
-        ></v-text-field>
-      </v-form>
+      
 
       <v-simple-table dark class="px-5 mx-5 mb-5">
         <template v-slot:default>
@@ -34,6 +23,16 @@
               <td class="text-uppercase text-subtitle-1 font-italic">
                 {{ coin.valueCoin }}
               </td>
+              <td>
+                <div>
+                  <v-btn icon @click="editGrade()">
+                    <v-icon>mdi-pencil</v-icon>
+                  </v-btn>
+                  <v-btn icon @click="deleteGrade(coin)" >
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </div>
+              </td>
             </tr>
           </tbody>
         </template>
@@ -47,8 +46,15 @@ export default {
   data() {
     return {
       titles: ["Nombre moneda", "Cantidad"],
-      textSearch: "",
+      
     };
   },
+
+  methods: {
+    editGrade(){
+      let valor = this.value
+      console.log(valor)
+    }
+  }
 };
 </script>
