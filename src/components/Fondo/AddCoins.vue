@@ -1,28 +1,73 @@
 <template>
   <div>
-    <v-card class="mx-1 mb-1 mt-5 p-2">
+    <v-card class="x-1 mb-1 pb-4 px-4">
+       <v-container>
+      <v-card-title class="text-center">Debe seleccionar la moneda y la cantidad</v-card-title>
+      
+        <v-row align="center">
+      <v-col
+        class="d-flex"
+        cols="12"
+        sm="6"
+      >
       <v-select
         v-model="selected.nameCoin"
         :items="coins"
         item-text="name"
         item-value="name"
-        label="I have"
+        label="Seleccionar"
       ></v-select>
-
+</v-col>
+    
+      <v-col
+        class="d-flex"
+        cols="12"
+        sm="6"
+      >
       <v-text-field
         type="number"
         v-model.number="selected.valueCoin"
         label="Cantidad"
         required
       ></v-text-field>
-
-      <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
-      <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
-      <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
+      </v-col>
+     
+      <v-col
+        cols="12"
+        sm="4"
+      >
+      <v-btn block outlined color="cforange" @click="Agregar"> Agregar
+        <v-icon dark>
+        mdi-plus
+      </v-icon> </v-btn>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+      >
+      <v-btn block outlined color="cforange" @click="editar"> Editar 
+        <v-icon> mdi-pencil </v-icon>
+      </v-btn>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+      >
+      <v-btn block outlined color="cforange" @click="borrar"> Borrar 
+          <v-icon> mdi-delete </v-icon>
+      </v-btn>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="12"
+      >
       <v-btn block outlined color="cforange" @click="actualizar"
         >Actualizar</v-btn
       >
-      <h1></h1>
+      </v-col>
+      
+      </v-row>
+      </v-container>
     </v-card>
   </div>
 </template>
