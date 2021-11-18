@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card lclass="mx-1 mb-1 mt-5 p-2">
-      <v-container>
+     
         <v-select
         v-model="selected.nameCoin"
         :items="coins"
