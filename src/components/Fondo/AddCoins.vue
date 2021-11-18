@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card lclass="mx-1 mb-1 mt-5 p-2">
-     
+      
         <v-select
         v-model="selected.nameCoin"
         :items="coins"
@@ -16,7 +16,7 @@
         label="Cantidad"
         required
       ></v-text-field>
-      
+     
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
       <div v-if="this.walletOne[0]">
@@ -30,10 +30,11 @@
       </div>
 
       
+      <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
+      <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-      <v-btn block outlined color="cforange" @click="actualizar">
-        actualizar
-      </v-btn>
+      <v-btn block outlined color="cforange" @click="actualizar">Actualizar</v-btn>
+      <h1></h1>
     </v-card>
   </div>
 </template>
@@ -52,14 +53,11 @@ export default {
       dataCoins: [],
     };
   },
-
   methods: {
     borrar() {
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
-
       let funciona = 0;
       console.log(funciona);
-
       for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
         let indice = i;
         if (
@@ -81,10 +79,8 @@ export default {
     },
     editar() {
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
-
       let funciona = 0;
       console.log(funciona);
-
       for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
         let indice = i;
         if (
@@ -110,7 +106,6 @@ export default {
       if (dataCurrentUser !== undefined) {
         let funciona = 0;
         console.log(funciona);
-
         for (let i = 0; i <= dataCurrentUser.length - 1; i++) {
           let indice = i;
           if (
@@ -125,7 +120,6 @@ export default {
             console.log("No Funciona");
           }
         }
-
         if (funciona === 1) {
           this.$store.state.currentUser.walletOne[this.indice].valueCoin =
             this.$store.state.currentUser.walletOne[this.indice].valueCoin +
@@ -143,7 +137,6 @@ export default {
         this.selected = { nameCoin: "", valueCoin: "" };
       }
     },
-
     addCoins() {
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       if (dataCurrentUser !== undefined) {
@@ -157,24 +150,21 @@ export default {
       this.$store.dispatch("subscribeToAuthStateChange");
       this.selected = { nameCoin: "", valueCoin: "" };
       this.walletOne = [];
-      
     },
-
     actualizar() {
       this.$store.dispatch("subscribeToAuthStateChange");
-      this.calculo()
+      this.calculo();
     },
     calculo() {
       this.dataCoins = [];
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       let dataCoin = this.coins;
-
+      
       dataCurrentUser.forEach((coin, index) => {
         let indiceFire = index;
         let nameCoinFire = coin.nameCoin;
         let valueCoinFire = coin.valueCoin;
         console.log(nameCoinFire, indiceFire, valueCoinFire);
-
         dataCoin.forEach((coin, index) => {
           let indiceApi = index;
           let nameCoinApi = coin.name;
@@ -186,12 +176,13 @@ export default {
           };
           if (nameCoinFire == nameCoinApi) {
             this.dataCoins.push(data);
+          
           }
         });
       });
+        this.$store.state.data = this.dataCoins
     },
   },
-
   async mounted() {
     const res = await fetch(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=12&page=1&sparkline=false"
