@@ -31,6 +31,9 @@
       <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
       <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
+      <v-btn block outlined color="cforange" @click="actualizar">
+        actualizar
+      </v-btn>
     </v-card>
   </div>
 </template>
@@ -46,6 +49,7 @@ export default {
       walletOne: [],
       id: "",
       indice: "",
+      dataCoins: [],
     };
   },
 
@@ -72,7 +76,6 @@ export default {
       }
       if (funciona === 1) {
         this.$store.state.currentUser.walletOne.splice(this.indice, 1);
-        
       } else {
       }
     },
@@ -98,8 +101,7 @@ export default {
       }
       if (funciona === 1) {
         this.$store.state.currentUser.walletOne[this.indice].valueCoin =
-            this.selected.valueCoin;
-       
+          this.selected.valueCoin;
       } else {
       }
     },
@@ -152,9 +154,41 @@ export default {
       Firebase.firestore().collection("usuarios").doc(this.id).update({
         walletOne: this.walletOne,
       });
+      this.$store.dispatch("subscribeToAuthStateChange");
       this.selected = { nameCoin: "", valueCoin: "" };
       this.walletOne = [];
+      
+    },
+
+    actualizar() {
       this.$store.dispatch("subscribeToAuthStateChange");
+      this.calculo()
+    },
+    calculo() {
+      this.dataCoins = [];
+      let dataCurrentUser = this.$store.state.currentUser.walletOne;
+      let dataCoin = this.coins;
+
+      dataCurrentUser.forEach((coin, index) => {
+        let indiceFire = index;
+        let nameCoinFire = coin.nameCoin;
+        let valueCoinFire = coin.valueCoin;
+        console.log(nameCoinFire, indiceFire, valueCoinFire);
+
+        dataCoin.forEach((coin, index) => {
+          let indiceApi = index;
+          let nameCoinApi = coin.name;
+          let valueCoinApi = coin.current_price;
+          let data = {
+            name: nameCoinFire,
+            valueCoin: valueCoinFire,
+            price: valueCoinApi,
+          };
+          if (nameCoinFire == nameCoinApi) {
+            this.dataCoins.push(data);
+          }
+        });
+      });
     },
   },
 
