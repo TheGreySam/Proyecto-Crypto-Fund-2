@@ -26,9 +26,10 @@
             </tr>
           </thead>
           <tbody>
-            
-            <tr v-for="(coin, index) in $store.state.currentUser.walletOne" :key="index">
-             
+            <tr
+              v-for="(coin, index) in $store.state.currentUser.walletOne"
+              :key="index"
+            >
               <td class="text-subtitle-1">{{ coin.nameCoin }}</td>
               <td class="text-uppercase text-subtitle-1 font-italic">
                 {{ coin.valueCoin }}
@@ -45,8 +46,6 @@
 export default {
   data() {
     return {
-      coins: [],
-      filteredCoins: [],
       titles: ["Nombre moneda", "Cantidad"],
       textSearch: "",
     };
