@@ -48,8 +48,8 @@
 
                   <v-select
                     :items="[
-                      { text: 'Premium', value: 'PREMIUM' },
-                      { text: 'Básica', value: 'BASICA' },
+                      { text: 'Premium', value: 'admin' },
+                      { text: 'Básico', value: 'user' },
                     ]"
                     label="Selecciona tu suscripción"
                     v-model="rol"

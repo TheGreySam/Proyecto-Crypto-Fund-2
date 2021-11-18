@@ -15,7 +15,7 @@
         label="Cantidad"
         required
       ></v-text-field>
-      <h1>{{ this.id }}</h1>
+     
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
       <div v-if="this.walletOne[0]">
@@ -34,16 +34,7 @@
       <v-btn block outlined color="cforange" @click="actualizar">
         actualizar
       </v-btn>
-      <h1>
-        esto es data Coins 
-        <p v-for="( data,index) in this.dataCoins" :key="index">
-
-         nombre: {{data.name}}
-          cantida: {{data.valueCoin}}
-          precio: {{data.price}}
-        </p>
-
-      </h1>
+      <h1></h1>
     </v-card>
   </div>
 </template>
@@ -167,12 +158,11 @@ export default {
       this.$store.dispatch("subscribeToAuthStateChange");
       this.selected = { nameCoin: "", valueCoin: "" };
       this.walletOne = [];
-      
     },
 
     actualizar() {
       this.$store.dispatch("subscribeToAuthStateChange");
-      this.calculo()
+      this.calculo();
     },
     calculo() {
       this.dataCoins = [];

@@ -27,26 +27,28 @@
         </v-app-bar>
       </div>
     </template>
-    <div>
-      <v-row>
-        <v-col sm="6" md="6" cols="12">
-          <UserInfo />
+
+    <v-container fluid>
+      <v-row class="pt-5">
+        <v-col md="6 pl-5" cols="12">
           <AddCoins />
+          <EditarCoins />
         </v-col>
 
-        <v-col sm="6" md="6" cols="12">
-          <EditarCoins />
+        <v-col md="6 pr-5" cols="12">
+          <div class="pb-5">
+            <UserInfo />
+          </div>
           <GraficoCripto />
-          <Bucle />
         </v-col>
       </v-row>
-    </div>
+    </v-container>
   </div>
 </template>
 
 <script>
 import Bucle from "@/components/Fondo/Bucle";
-import AddCoins from "@/components/Fondo/AddCoins"
+import AddCoins from "@/components/Fondo/AddCoins";
 import GraficoCripto from "@/components/Fondo/GraficoCripto";
 import SectionHero from "../components/SectionHero.vue";
 import UserInfo from "@/components/Fondo/UserInfo";
@@ -64,7 +66,7 @@ export default {
     Porcentaje,
     Currency,
     EditarCoins,
-    Bucle
+    Bucle,
   },
 };
 </script>

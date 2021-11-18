@@ -91,7 +91,7 @@ export default {
   } 
   
 }
-@media screen and (min-width: 1700px){
+@media screen and (min-width: 1800px){
   .img-about2 {
     position: relative;
      bottom: 90px;

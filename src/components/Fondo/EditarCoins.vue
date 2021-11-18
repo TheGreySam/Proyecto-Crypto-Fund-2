@@ -23,16 +23,6 @@
               <td class="text-uppercase text-subtitle-1 font-italic">
                 {{ coin.valueCoin }}
               </td>
-              <td>
-                <div>
-                  <v-btn icon @click="editGrade()">
-                    <v-icon>mdi-pencil</v-icon>
-                  </v-btn>
-                  <v-btn icon @click="deleteGrade(coin)" >
-                    <v-icon>mdi-delete</v-icon>
-                  </v-btn>
-                </div>
-              </td>
             </tr>
           </tbody>
         </template>
