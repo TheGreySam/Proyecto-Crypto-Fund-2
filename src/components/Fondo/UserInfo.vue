@@ -19,7 +19,7 @@
         >
           <v-avatar
             class="profile mt-10 ml-4"
-            size="164"
+            size="165"
             tile
           >
             <v-img src="../../assets/avatar33.png"></v-img>
