@@ -45,13 +45,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.hero-logo{
+  @keyframes movimiento-lateral {
+      from {
+          left: 0px;
+      }
+      to {
+          left: 100px;
+      }
+    }   
+      animation-name: movimiento-lateral;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      width: 100px;
+      background-color: transparent;
+      color: #fff;
+      position: relative;
+      padding: 2px;
+}
 
  .text-title, .text-subtitle {
    text-shadow: 0px 3px #000000;
  }
  .text-title{
    font-size: 3rem;
+   
  }
  .text-subtitle{
    font-size: 22px;
