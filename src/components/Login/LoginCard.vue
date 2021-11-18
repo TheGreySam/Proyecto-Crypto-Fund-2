@@ -81,8 +81,9 @@ export default {
             this.$store.dispatch("defineCurrentUser", {
               email: response.user.email,
             });
-            this.$router.push("/fondo");
+            this.$store.dispatch("subscribeToAuthStateChange");
             this.dialog = false;
+            this.$router.push("/fondo");
           })
           .catch(() => {
             this.$swal("Upss, correo o contraseña incorrectos");

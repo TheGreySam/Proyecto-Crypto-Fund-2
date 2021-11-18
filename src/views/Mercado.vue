@@ -17,7 +17,7 @@
       ></v-text-field>
     </v-form>
 
-    <v-simple-table dark class="px-5 mx-5">
+    <v-simple-table dark class="px-5 mx-5 mb-5">
       <template v-slot:default>
         <thead>
           <tr>

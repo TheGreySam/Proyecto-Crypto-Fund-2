@@ -44,7 +44,7 @@
         USD
       </v-card-title>
       <v-card-title class="card-title-cripto">
-        Volumen 24H: {{ coin.total_volume.toLocaleString("de-DE") }} USD
+        Vol. 24H: {{ coin.total_volume.toLocaleString("de-DE") }} USD
       </v-card-title>
     </v-container>
   </v-card>
