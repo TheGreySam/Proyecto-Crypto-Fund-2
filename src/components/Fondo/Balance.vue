@@ -33,7 +33,6 @@
                
               </tr>
             </tbody>
-            <v-btn @click="totalCoin">Total</v-btn>
           </template>
         </v-simple-table>
       </v-container>
