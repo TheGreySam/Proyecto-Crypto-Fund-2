@@ -1,7 +1,8 @@
 <template>
   <div>
-    <v-card>
-      <v-select
+    <v-card class="mx-1 mb-1 mt-5 p-2">
+      <v-container>
+        <v-select
         v-model="selected.nameCoin"
         :items="coins"
         item-text="name"
@@ -15,7 +16,7 @@
         label="Cantidad"
         required
       ></v-text-field>
-      <h1>{{ this.id }}</h1>
+      
       <v-btn block outlined color="cforange" @click="Agregar"> Agregar </v-btn>
       <h1 v-if="this.walletOne[0]" class="text-h5">Estas agregando:</h1>
       <div v-if="this.walletOne[0]">
@@ -28,9 +29,10 @@
         </h1>
       </div>
 
-      <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
-      <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
+      
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
+      </v-container>
+      
     </v-card>
   </div>
 </template>

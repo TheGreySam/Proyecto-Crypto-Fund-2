@@ -31,12 +31,13 @@
       <v-row>
         <v-col sm="6" md="6" cols="12">
           <UserInfo />
-          <AddCoins />
+         
         </v-col>
 
         <v-col sm="6" md="6" cols="12">
+           <AddCoins />
           <EditarCoins />
-          <GraficoCripto />
+          
         </v-col>
       </v-row>
     </div>

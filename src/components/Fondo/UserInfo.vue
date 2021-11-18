@@ -13,19 +13,7 @@
            
               <p v-if="this.$store.state.currentUser">Plan {{this.$store.state.currentUser.rol}}</p>
             </v-card-title>
-            <v-card-text class="pa-6 pt-0">
-              <v-row no-gutters class="pb-5">
-                <v-col cols="5">
-                  <span
-                   style="font-size: 24px">
-                   12, 678</span>
-                </v-col>
-                <v-col cols="6">
-                  asd
-                </v-col>
-              </v-row>
-             
-            </v-card-text>
+           
           </v-card>
       
 </template>

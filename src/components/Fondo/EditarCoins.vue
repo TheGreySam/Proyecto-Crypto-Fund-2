@@ -1,43 +1,50 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="text-center py-5">Tu Billetera</h1>
+    <v-card class="mx-1 mb-1 mt-5">
+      <v-container>
+        
 
-      <v-form ref="form">
-        <v-text-field
-          dark
-          outlined
-          class="px-5"
-          placeholder="Buscar Moneda"
-          background-color="grey darken-4"
-          color="white"
-          @keyup="searchCoin()"
-          v-model="textSearch"
-        ></v-text-field>
-      </v-form>
+      
 
-      <v-simple-table dark class="px-5 mx-5 mb-5">
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th v-for="title in titles" :key="title" class="text-subtitle-1">
-                {{ title }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr v-for="(coin, index) in $store.state.currentUser.walletOne" :key="index">
-             
-              <td class="text-subtitle-1">{{ coin.nameCoin }}</td>
-              <td class="text-uppercase text-subtitle-1 font-italic">
-                {{ coin.valueCoin }}
-              </td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
-    </v-container>
+        <v-simple-table class="px-5 mx-5 mb-5">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th
+                  v-for="title in titles"
+                  :key="title"
+                  class="text-subtitle-1"
+                >
+                  {{ title }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(coin, index) in $store.state.currentUser.walletOne"
+                :key="index"
+              >
+                <td class="text-subtitle-1">{{ coin.nameCoin }}</td>
+                <td class="text-uppercase text-subtitle-1 font-italic">
+                  {{ coin.valueCoin }}
+                </td>
+                <td></td>
+                <td>
+                  <v-btn block outlined color="cforange" @click="editar">
+                    Editar
+                  </v-btn>
+                </td>
+                <td>
+                  <v-btn block outlined color="cforange" @click="borrar">
+                    Borrar
+                  </v-btn>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-container>
+    </v-card>
   </div>
 </template>
 
@@ -47,9 +54,19 @@ export default {
     return {
       coins: [],
       filteredCoins: [],
-      titles: ["Nombre moneda", "Cantidad"],
+      titles: ["Nombre moneda", "Cantidad", "Valor"],
       textSearch: "",
     };
+  },
+  async mounted() {
+    this.loading = true;
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false"
+    );
+    const data = await res.json();
+    (this.coins = data), console.log(data);
+    (this.filteredCoins = data), console.log(data);
+    this.loading = false;
   },
 };
 </script>
