@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card lclass="mx-1 mb-1 mt-5 p-2">
-      <v-container>
+      
         <v-select
         v-model="selected.nameCoin"
         :items="coins"
@@ -30,10 +30,10 @@
       </div>
 
       
+      <v-btn block outlined color="cforange" @click="editar"> Editar </v-btn>
+      <v-btn block outlined color="cforange" @click="borrar"> Borrar </v-btn>
       <v-btn block outlined color="cforange" @click="addCoins"> Guardar </v-btn>
-      <v-btn block outlined color="cforange" @click="actualizar">
-        actualizar
-      </v-btn>
+      <v-btn block outlined color="cforange" @click="actualizar">Actualizar</v-btn>
       <h1></h1>
     </v-card>
   </div>
@@ -168,6 +168,7 @@ export default {
       this.dataCoins = [];
       let dataCurrentUser = this.$store.state.currentUser.walletOne;
       let dataCoin = this.coins;
+      
 
       dataCurrentUser.forEach((coin, index) => {
         let indiceFire = index;
@@ -186,9 +187,11 @@ export default {
           };
           if (nameCoinFire == nameCoinApi) {
             this.dataCoins.push(data);
+          
           }
         });
       });
+        this.$store.state.data = this.dataCoins
     },
   },
 

@@ -29,6 +29,7 @@
         </template>
       </v-simple-table>
     </v-container>
+    </v-card>
   </div>
 </template>
 
